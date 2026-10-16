@@ -1254,3 +1254,280 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ==========================================
+// P2P OFFLINE EMERGENCY PLAN SHARING (QR CODE)
+// ==========================================
+
+let qrCameraStream = null;
+let qrScanInterval = null;
+
+function encodePlanToQRPayload(plan) {
+  try {
+    const jsonStr = JSON.stringify(plan || state.plan || {});
+    const b64 = btoa(unescape(encodeURIComponent(jsonStr)));
+    return "MG72H:" + b64;
+  } catch (err) {
+    console.error("Error encoding plan:", err);
+    return "";
+  }
+}
+
+function decodeQRPayloadToPlan(payload) {
+  try {
+    const trimmed = (payload || "").trim();
+    if (!trimmed) return null;
+    let b64 = trimmed;
+    if (trimmed.startsWith("MG72H:")) {
+      b64 = trimmed.substring(6);
+    } else if (trimmed.startsWith("MG72HZ:")) {
+      b64 = trimmed.substring(7);
+    }
+    const jsonStr = decodeURIComponent(escape(atob(b64)));
+    return JSON.parse(jsonStr);
+  } catch (err) {
+    console.error("Error decoding plan payload:", err);
+    return null;
+  }
+}
+
+function openQRShareModal() {
+  savePlanData();
+  const modal = document.getElementById("modal-qr-share");
+  const box = document.getElementById("qr-code-box");
+  if (!modal || !box) return;
+
+  const payload = encodePlanToQRPayload(state.plan);
+  if (!payload) {
+    alert("Impossible d'encoder le plan d'urgence.");
+    return;
+  }
+
+  try {
+    const qr = qrcode(0, "M");
+    qr.addData(payload);
+    qr.make();
+    box.innerHTML = qr.createSvgTag(5, 8);
+  } catch (err) {
+    console.error("QR Generation error:", err);
+    try {
+      const minPlan = {
+        head: state.plan.head,
+        emergency: state.plan.emergency,
+        house: state.plan.house,
+        members: state.plan.members
+      };
+      const minPayload = encodePlanToQRPayload(minPlan);
+      const qrMin = qrcode(0, "L");
+      qrMin.addData(minPayload);
+      qrMin.make();
+      box.innerHTML = qrMin.createSvgTag(5, 8);
+    } catch (e2) {
+      box.innerHTML = "<p style='color:#000;'>Plan trop volumineux pour un QR code unique. Utilisez le bouton Sauvegarder JSON.</p>";
+    }
+  }
+
+  modal.style.display = "flex";
+}
+
+function closeQRShareModal() {
+  const modal = document.getElementById("modal-qr-share");
+  if (modal) modal.style.display = "none";
+}
+
+function copyQRPayload() {
+  const payload = encodePlanToQRPayload(state.plan);
+  if (!payload) return;
+  navigator.clipboard.writeText(payload).then(() => {
+    alert("Clé d'urgence copiée dans le presse-papier !");
+  }).catch(() => {
+    prompt("Copiez votre clé d'urgence :", payload);
+  });
+}
+
+function sharePlanViaWebShare() {
+  const payload = encodePlanToQRPayload(state.plan);
+  if (navigator.share) {
+    navigator.share({
+      title: "Plan d'Urgence Familial 72h",
+      text: "Voici mon plan d'urgence familial MonGuide72h (clé de synchronisation hors-ligne) :\n\n" + payload,
+    }).catch(err => console.log("Share canceled", err));
+  } else {
+    copyQRPayload();
+  }
+}
+
+function downloadQRCodePNG() {
+  const box = document.getElementById("qr-code-box");
+  const svg = box?.querySelector("svg");
+  if (!svg) return;
+
+  const svgData = new XMLSerializer().serializeToString(svg);
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  const img = new Image();
+  img.onload = () => {
+    canvas.width = img.width || 400;
+    canvas.height = img.height || 400;
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+    const a = document.createElement("a");
+    a.download = "MonGuide72h-Plan-QR.png";
+    a.href = canvas.toDataURL("image/png");
+    a.click();
+  };
+  img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData)));
+}
+
+function openQRScanModal() {
+  const modal = document.getElementById("modal-qr-scan");
+  if (modal) modal.style.display = "flex";
+  const feedback = document.getElementById("qr-scan-feedback");
+  if (feedback) feedback.textContent = "";
+}
+
+function closeQRScanModal() {
+  stopCameraScanner();
+  const modal = document.getElementById("modal-qr-scan");
+  if (modal) modal.style.display = "none";
+}
+
+function startCameraScanner() {
+  const video = document.getElementById("qr-scan-video");
+  const container = document.getElementById("qr-camera-container");
+  const btn = document.getElementById("btn-toggle-camera");
+  const feedback = document.getElementById("qr-scan-feedback");
+
+  if (qrCameraStream) {
+    stopCameraScanner();
+    return;
+  }
+
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    alert("Accès caméra non supporté par ce navigateur.");
+    return;
+  }
+
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+    .then(stream => {
+      qrCameraStream = stream;
+      if (video) {
+        video.srcObject = stream;
+        video.play();
+      }
+      if (container) container.style.display = "block";
+      if (btn) btn.textContent = "🛑 Arrêter la Caméra";
+
+      if ("BarcodeDetector" in window) {
+        const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
+        qrScanInterval = setInterval(async () => {
+          if (!video || video.readyState < 2) return;
+          try {
+            const barcodes = await barcodeDetector.detect(video);
+            if (barcodes && barcodes.length > 0) {
+              const rawValue = barcodes[0].rawValue;
+              if (rawValue && (rawValue.startsWith("MG72H:") || rawValue.startsWith("{"))) {
+                stopCameraScanner();
+                applyQRPayloadString(rawValue);
+              }
+            }
+          } catch (e) {
+            // Frame error
+          }
+        }, 300);
+      } else {
+        if (feedback) {
+          feedback.style.color = "var(--accent-color)";
+          feedback.textContent = "Caméra active. Si l'auto-détection n'est pas disponible sur votre navigateur, importez une photo du QR code ci-dessous.";
+        }
+      }
+    })
+    .catch(err => {
+      alert("Impossible d'accéder à la caméra : " + (err.message || err));
+    });
+}
+
+function stopCameraScanner() {
+  if (qrScanInterval) {
+    clearInterval(qrScanInterval);
+    qrScanInterval = null;
+  }
+  if (qrCameraStream) {
+    qrCameraStream.getTracks().forEach(track => track.stop());
+    qrCameraStream = null;
+  }
+  const container = document.getElementById("qr-camera-container");
+  if (container) container.style.display = "none";
+  const btn = document.getElementById("btn-toggle-camera");
+  if (btn) btn.textContent = "📷 Utiliser la Caméra";
+}
+
+function scanQRFromImageFile(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  const feedback = document.getElementById("qr-scan-feedback");
+  if ("BarcodeDetector" in window) {
+    const barcodeDetector = new BarcodeDetector({ formats: ["qr_code"] });
+    const img = new Image();
+    img.onload = async () => {
+      try {
+        const barcodes = await barcodeDetector.detect(img);
+        if (barcodes && barcodes.length > 0) {
+          applyQRPayloadString(barcodes[0].rawValue);
+        } else {
+          if (feedback) {
+            feedback.style.color = "#ff4444";
+            feedback.textContent = "Aucun QR code détecté dans cette image.";
+          }
+        }
+      } catch (err) {
+        if (feedback) {
+          feedback.style.color = "#ff4444";
+          feedback.textContent = "Erreur de lecture de l'image.";
+        }
+      }
+    };
+    img.src = URL.createObjectURL(file);
+  } else {
+    alert("Veuillez coller le code d'urgence dans le champ texte ci-dessous.");
+  }
+}
+
+function applyManualQRPayload() {
+  const input = document.getElementById("qr-manual-payload");
+  if (!input) return;
+  applyQRPayloadString(input.value);
+}
+
+function applyQRPayloadString(payloadStr) {
+  const feedback = document.getElementById("qr-scan-feedback");
+  const plan = decodeQRPayloadToPlan(payloadStr);
+
+  if (!plan) {
+    if (feedback) {
+      feedback.style.color = "#ff4444";
+      feedback.textContent = "Code d'urgence invalide ou format non reconnu.";
+    }
+    return;
+  }
+
+  state.plan = Object.assign(state.plan || {}, plan);
+  localStorage.setItem("mg72_plan_data", JSON.stringify(state.plan));
+
+  loadPlanData();
+  renderMembersList();
+  renderMedsList();
+  renderPetsList();
+  renderNeighborhoodLists();
+
+  if (feedback) {
+    feedback.style.color = "#00D66F";
+    feedback.textContent = "✅ Plan familial synchronisé avec succès !";
+  }
+
+  setTimeout(() => {
+    closeQRScanModal();
+  }, 1200);
+}

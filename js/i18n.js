@@ -212,7 +212,24 @@ const I18N = {
     iceContact1Label: "Contact ICE 1 (Nom + Tél) :",
     iceContact2Label: "Contact ICE 2 (Nom + Tél) :",
     iceGenerateBtn: "📱 Générer & Télécharger le Fond d'Écran",
-    iceNote: "Enregistrez l'image générée dans vos Photos et appliquez-la comme 'Écran Verrouillé'."
+    iceNote: "Enregistrez l'image générée dans vos Photos et appliquez-la comme 'Écran Verrouillé'.",
+
+    // Partage P2P & QR Code
+    qrShareBtn: "Partager (QR Code)",
+    qrScanBtn: "Scanner / Importer",
+    qrModalShareTitle: "Partage Sécurisé du Plan Familial",
+    qrModalShareSub: "Scannez ce QR Code avec un autre smartphone pour dupliquer votre plan d urgence sans connexion internet.",
+    qrModalScanTitle: "Scanner / Importer un Plan d Urgence",
+    qrModalScanSub: "Scannez le code avec la caméra, importez une capture d écran ou collez la clé MG72H.",
+    qrNativeShareBtn: "📲 Partager (AirDrop / Bluetooth / Apps)",
+    qrDownloadBtn: "📥 Télécharger le QR Code (PNG)",
+    qrCopyPayloadBtn: "📋 Copier la clé d urgence",
+    qrScanCamera: "📷 Utiliser la Caméra",
+    qrScanFile: "📁 Importer une Image QR Code",
+    qrPasteKey: "Collez ici le code (commençant par MG72H:)...",
+    qrApplyBtn: "Valider & Synchroniser le Plan",
+    qrSuccess: "Plan d urgence familial importé avec succès !",
+    qrError: "Code QR non reconnu ou format invalide." 
   },
 
   en: {
@@ -410,7 +427,24 @@ const I18N = {
     iceContact1Label: "ICE Contact 1 (Name + Phone):",
     iceContact2Label: "ICE Contact 2 (Name + Phone):",
     iceGenerateBtn: "📱 Generate & Download Wallpaper",
-    iceNote: "Save the generated image to your Photos and set it as your 'Lock Screen'."
+    iceNote: "Save the generated image to your Photos and set it as your 'Lock Screen'.",
+
+    // Partage P2P & QR Code
+    qrShareBtn: "Share (QR Code)",
+    qrScanBtn: "Scan / Import",
+    qrModalShareTitle: "Secure Family Plan Sharing",
+    qrModalShareSub: "Scan this QR Code with another smartphone to clone your emergency plan without internet access.",
+    qrModalScanTitle: "Scan / Import Emergency Plan",
+    qrModalScanSub: "Scan the code with your camera, import a screenshot or paste the MG72H key.",
+    qrNativeShareBtn: "📲 Share (AirDrop / Bluetooth / Apps)",
+    qrDownloadBtn: "📥 Download QR Code (PNG)",
+    qrCopyPayloadBtn: "📋 Copy Emergency Key",
+    qrScanCamera: "📷 Use Camera",
+    qrScanFile: "📁 Import QR Code Image",
+    qrPasteKey: "Paste emergency code here (starting with MG72H:)...",
+    qrApplyBtn: "Validate & Sync Plan",
+    qrSuccess: "Family emergency plan imported successfully!",
+    qrError: "Unrecognized QR code or invalid format." 
   },
 
   lu: {
@@ -608,7 +642,24 @@ const I18N = {
     iceContact1Label: "ICE Kontakt 1 (Numm + Tel):",
     iceContact2Label: "ICE Kontakt 2 (Numm + Tel):",
     iceGenerateBtn: "📱 Wallpaper generéieren & eroflueden",
-    iceNote: "Späichert d'Bild an Äre Fotoen a setzt et als 'Sperrbildschierm'."
+    iceNote: "Späichert d'Bild an Äre Fotoen a setzt et als 'Sperrbildschierm'.",
+
+    // Partage P2P & QR Code
+    qrShareBtn: "Deelen (QR Code)",
+    qrScanBtn: "Scannen / Importéieren",
+    qrModalShareTitle: "Sécher Deele vum Familljeplang",
+    qrModalShareSub: "Scannt dëse QR Code mat engem anere Smartphone fir den Noutplang ouni Internet ze synchroniséieren.",
+    qrModalScanTitle: "Noutplang Scannen / Importéieren",
+    qrModalScanSub: "Scannt de Code mat der Kamera, importéiert e Screenshot oder pecht de Schlëssel MG72H.",
+    qrNativeShareBtn: "📲 Deelen (AirDrop / Bluetooth / Apps)",
+    qrDownloadBtn: "📥 QR Code Erobueden (PNG)",
+    qrCopyPayloadBtn: "📋 Noutfall-Schlëssel Kopéieren",
+    qrScanCamera: "📷 Kamera Benotzen",
+    qrScanFile: "📁 QR Code Bild Importéieren",
+    qrPasteKey: "Pecht de Code hei eran (fänkt mat MG72H: un)...",
+    qrApplyBtn: "Plang Validéieren & Synchroniséieren",
+    qrSuccess: "Famillje-Noutplang erfollegräich importéiert!",
+    qrError: "QR Code net erkannt oder ongëltegt Format." 
   },
 
   de: {
@@ -806,7 +857,24 @@ const I18N = {
     iceContact1Label: "ICE-Kontakt 1 (Name + Tel):",
     iceContact2Label: "ICE-Kontakt 2 (Name + Tel):",
     iceGenerateBtn: "📱 Hintergrundbild generieren & herunterladen",
-    iceNote: "Speichern Sie das Bild in Ihren Fotos und legen Sie es als 'Sperrbildschirm' fest."
+    iceNote: "Speichern Sie das Bild in Ihren Fotos und legen Sie es als 'Sperrbildschirm' fest.",
+
+    // Partage P2P & QR Code
+    qrShareBtn: "Teilen (QR-Code)",
+    qrScanBtn: "Scannen / Importieren",
+    qrModalShareTitle: "Sichere Notfallplan-Freigabe",
+    qrModalShareSub: "Scannen Sie diesen QR-Code mit einem anderen Smartphone, um Ihren Notfallplan offline zu synchronisieren.",
+    qrModalScanTitle: "Notfallplan Scannen / Importieren",
+    qrModalScanSub: "Scannen Sie den Code mit der Kamera, importieren Sie einen Screenshot oder fügen Sie den MG72H-Schlüssel ein.",
+    qrNativeShareBtn: "📲 Teilen (AirDrop / Bluetooth / Apps)",
+    qrDownloadBtn: "📥 QR-Code Herunterladen (PNG)",
+    qrCopyPayloadBtn: "📋 Notfallschlüssel Kopieren",
+    qrScanCamera: "📷 Kamera Nutzen",
+    qrScanFile: "📁 QR-Code-Bild Importieren",
+    qrPasteKey: "Code hier einfügen (beginnend mit MG72H:)...",
+    qrApplyBtn: "Plan Bestätigen & Synchronisieren",
+    qrSuccess: "Familien-Notfallplan erfolgreich importiert!",
+    qrError: "QR-Code nicht erkannt oder ungültiges Format." 
   },
 
   es: {
@@ -1004,7 +1072,24 @@ const I18N = {
     iceContact1Label: "Contacto ICE 1 (Nombre + Tel):",
     iceContact2Label: "Contacto ICE 2 (Nombre + Tel):",
     iceGenerateBtn: "📱 Generar y Descargar Fondo",
-    iceNote: "Guarde la imagen en Fotos y establézcala como 'Pantalla bloqueada'."
+    iceNote: "Guarde la imagen en Fotos y establézcala como 'Pantalla bloqueada'.",
+
+    // Partage P2P & QR Code
+    qrShareBtn: "Compartir (Código QR)",
+    qrScanBtn: "Escanear / Importar",
+    qrModalShareTitle: "Compartir Plan Familiar de Forma Segura",
+    qrModalShareSub: "Escanee este código QR con otro smartphone para duplicar su plan de emergencia sin conexión a internet.",
+    qrModalScanTitle: "Escanear / Importar Plan de Emergencia",
+    qrModalScanSub: "Escanee el código con la cámara, importe una captura de pantalla o pegue la clave MG72H.",
+    qrNativeShareBtn: "📲 Compartir (AirDrop / Bluetooth / Aplicaciones)",
+    qrDownloadBtn: "📥 Descargar Código QR (PNG)",
+    qrCopyPayloadBtn: "📋 Copiar Clave de Emergencia",
+    qrScanCamera: "📷 Usar Cámara",
+    qrScanFile: "📁 Importar Imagen de Código QR",
+    qrPasteKey: "Pegue aquí el código (que empieza por MG72H:)...",
+    qrApplyBtn: "Validar & Sincronizar Plan",
+    qrSuccess: "¡Plan de emergencia familiar importado con éxito!",
+    qrError: "Código QR no reconocido o formato no válido." 
   },
 
   it: {
@@ -1202,7 +1287,24 @@ const I18N = {
     iceContact1Label: "Contatto ICE 1 (Nome + Tel):",
     iceContact2Label: "Contatto ICE 2 (Nome + Tel):",
     iceGenerateBtn: "📱 Genera & Scarica Sfondo",
-    iceNote: "Salva l'immagine nelle Foto e impostala come 'Schermata di blocco'."
+    iceNote: "Salva l'immagine nelle Foto e impostala come 'Schermata di blocco'.",
+
+    // Partage P2P & QR Code
+    qrShareBtn: "Condividi (Codice QR)",
+    qrScanBtn: "Scansiona / Importa",
+    qrModalShareTitle: "Condivisione Sicura del Piano Familiare",
+    qrModalShareSub: "Scansiona questo codice QR con un altro smartphone per duplicare il tuo piano di emergenza senza internet.",
+    qrModalScanTitle: "Scansiona / Importa Piano di Emergenza",
+    qrModalScanSub: "Scansiona il codice con la fotocamera, importa uno screenshot o incolla la chiave MG72H.",
+    qrNativeShareBtn: "📲 Condividi (AirDrop / Bluetooth / Applicazioni)",
+    qrDownloadBtn: "📥 Scarica Codice QR (PNG)",
+    qrCopyPayloadBtn: "📋 Copia Chiave di Emergenza",
+    qrScanCamera: "📷 Usa Fotocamera",
+    qrScanFile: "📁 Importa Immagine Codice QR",
+    qrPasteKey: "Incolla qui il codice (che inizia con MG72H:)...",
+    qrApplyBtn: "Convalida & Sincronizza Piano",
+    qrSuccess: "Piano di emergenza familiare importato con successo!",
+    qrError: "Codice QR non riconosciuto o formato non valido." 
   },
 
   pt: {
@@ -1400,6 +1502,23 @@ const I18N = {
     iceContact1Label: "Contacto ICE 1 (Nome + Tel):",
     iceContact2Label: "Contacto ICE 2 (Nome + Tel):",
     iceGenerateBtn: "📱 Gerar & Descarregar Fundo de Ecrã",
-    iceNote: "Guarde a imagem gerada nas Fotografias e defina-a como 'Ecrã bloqueado'."
+    iceNote: "Guarde a imagem gerada nas Fotografias e defina-a como 'Ecrã bloqueado'.",
+
+    // Partage P2P & QR Code
+    qrShareBtn: "Partilhar (QR Code)",
+    qrScanBtn: "Digitalizar / Importar",
+    qrModalShareTitle: "Partilha Segura do Plano Familiar",
+    qrModalShareSub: "Digitalize este código QR com outro smartphone para duplicar o seu plano de emergência sem internet.",
+    qrModalScanTitle: "Digitalizar / Importar Plano de Emergência",
+    qrModalScanSub: "Digitalize o código com a câmara, importe uma captura de ecrã ou cole a chave MG72H.",
+    qrNativeShareBtn: "📲 Partilhar (AirDrop / Bluetooth / Aplicações)",
+    qrDownloadBtn: "📥 Descarregar QR Code (PNG)",
+    qrCopyPayloadBtn: "📋 Copiar Chave de Emergência",
+    qrScanCamera: "📷 Utilizar Câmara",
+    qrScanFile: "📁 Importar Imagem QR Code",
+    qrPasteKey: "Cole aqui o código (a começar por MG72H:)...",
+    qrApplyBtn: "Validar & Sincronizar Plano",
+    qrSuccess: "Plano de emergência familiar importado com sucesso!",
+    qrError: "Código QR não reconhecido ou formato inválido." 
   }
 };

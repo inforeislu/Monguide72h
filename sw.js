@@ -3,12 +3,13 @@
  * Caches core assets to enable 100% offline autonomy during network blackouts.
  */
 
-const CACHE_NAME = "mon-guide-72h-v2";
+const CACHE_NAME = "mon-guide-72h-v3";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./styles/main.css",
   "./js/i18n.js",
+  "./js/qrcode.js",
   "./js/app.js",
   "./manifest.webmanifest",
   "./favicon.png",
