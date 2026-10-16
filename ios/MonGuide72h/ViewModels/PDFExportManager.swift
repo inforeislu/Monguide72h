@@ -281,7 +281,7 @@ public class PDFExportManager {
         let leftText = "Documento de emergência pessoal — Guarde este impresso junto ao Kit 72h e à entrada de casa."
         leftText.draw(at: CGPoint(x: 35, y: sepY + 8), withAttributes: fAttrs)
         
-        let rightText = "Desenvolvido por InfoReis (inforeis.lu)"
+        let rightText = "Desenvolvido por InfoReis (inforeis.eu)"
         let rWidth = (rightText as NSString).size(withAttributes: fAttrs).width
         rightText.draw(at: CGPoint(x: pageWidth - 35 - rWidth, y: sepY + 8), withAttributes: fAttrs)
     }

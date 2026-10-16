@@ -168,5 +168,5 @@ Le projet dispose de 3 workflows automatisés :
 
 * **Respect absolu de la vie privée** : Aucune donnée personnelle, médicale ou de localisation n'est transmise sur un serveur distant.
 * **Conformité Apple Privacy** : Manifeste `PrivacyInfo.xcprivacy` validé sans pistage tiers.
-* **Droits d'auteur** : © 2026 **InfoReis** ([inforeis.lu](https://inforeis.lu)). Tous droits réservés.
+* **Droits d'auteur** : © 2026 **InfoReis** ([inforeis.eu](https://www.inforeis.eu)). Tous droits réservés.
 * **Sources de résilience** : Inspiré de la stratégie officielle *« Lëtz prepare ! »* du Ministère d'État et du Haut-Commissariat à la Protection nationale du Luxembourg.

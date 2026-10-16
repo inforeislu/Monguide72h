@@ -102,7 +102,7 @@ public struct AboutView: View {
                             Text(loc.tr("website_label"))
                                 .font(.subheadline.bold())
                             Spacer()
-                            Link("www.inforeis.uk", destination: URL(string: "https://www.inforeis.uk") ?? URL(string: "https://letzprepare.public.lu")!)
+                            Link("www.inforeis.eu", destination: URL(string: "https://www.inforeis.eu") ?? URL(string: "https://letzprepare.public.lu")!)
                                 .font(.subheadline)
                         }
                         
@@ -112,9 +112,8 @@ public struct AboutView: View {
                             Text(loc.tr("contact_label"))
                                 .font(.subheadline.bold())
                             Spacer()
-                            Text("info@inforeis.uk")
+                            Link("info@inforeis.eu", destination: URL(string: "mailto:info@inforeis.eu")!)
                                 .font(.subheadline)
-                                .foregroundColor(.secondary)
                         }
                     }
                     .padding()

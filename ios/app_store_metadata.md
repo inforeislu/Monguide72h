@@ -7,7 +7,7 @@
 **Build**: `3`  
 **Category**: Utility / Medical / Weather & Safety  
 **Age Rating**: 4+  
-**Copyright**: © 2026 InfoReis (inforeis.lu). Tous droits réservés.  
+**Copyright**: © 2026 InfoReis (inforeis.eu). Tous droits réservés.  
 **Support URL**: https://letzprepare.public.lu  
 **Privacy Policy URL**: https://letzprepare.public.lu/privacy  
 

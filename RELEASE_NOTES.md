@@ -53,5 +53,5 @@ Bienvenue dans la version **1.2.0** de **MonGuide72h**, l'application multiplate
 - **Zéro Pistage / Zéro Télémétrie** : Vos données personnelles, vos contacts d'urgence et vos adresses de ralliement restent à 100% sur votre appareil.
 - **Fonctionnement Sans Réseau** : Tous les calculs, générateurs de QR codes, synthétiseurs audio de sirènes nationales et fiches d'action fonctionnent sans internet.
 
-© 2026 **InfoReis** • Renato Reis ([inforeis.lu](https://inforeis.lu))  
+© 2026 **InfoReis** • Renato Reis ([inforeis.eu](https://www.inforeis.eu))  
 Inspiré de la stratégie officielle *« Lëtz prepare ! »* du Haut-Commissariat à la Protection nationale (HCPN / CGDIS) du Luxembourg.

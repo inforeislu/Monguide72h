@@ -712,7 +712,7 @@ function generateAndDownloadICEWallpaper() {
   // 7. Footer Notice
   ctx.fillStyle = "rgba(255, 255, 255, 0.45)";
   ctx.font = "500 26px -apple-system, sans-serif";
-  ctx.fillText("Fond d'écran d'urgence généré par Mon Guide 72h • inforeis.lu", W / 2, 2240);
+  ctx.fillText("Fond d'écran d'urgence généré par Mon Guide 72h • inforeis.eu", W / 2, 2240);
 
   // Trigger Download
   const link = document.createElement("a");

@@ -6,10 +6,10 @@
 
 **Grand-Duché de Luxembourg**  
 **Date :** Octobre 2026  
-**Auteur du projet :** Renato Reis — INFOREIS (`info@inforeis.uk` / `inforeis.lu`)  
+**Auteur du projet :** Renato Reis — INFOREIS (`info@inforeis.eu` / `https://www.inforeis.eu`)  
 **Nature de l'initiative :** Contribution bénévole d'intérêt public & civique  
 **Statut juridique & économique :** 100% Gratuit, Sans Publicité, Sans Cloud, Code Ouvert  
-**Plateformes supportées :** iOS Nativo (SwiftUI / Apple Watch / Widgets), Android Nativo (Jetpack Compose), Web PWA Hors-Ligne (`monguide72h.inforeis.lu`)
+**Plateformes supportées :** iOS Nativo (SwiftUI / Apple Watch / Widgets), Android Nativo (Jetpack Compose), Web PWA Hors-Ligne
 
 ---
 
@@ -111,4 +111,4 @@ Dans le cadre de l'évaluation en cours par les services de l'État luxembourgeo
 **Renato Reis**  
 Fondateur INFOREIS  
 Grand-Duché de Luxembourg  
-Contact officiel : `info@inforeis.uk` | `inforeis.lu`
+Contact officiel : `info@inforeis.eu` | [https://www.inforeis.eu](https://www.inforeis.eu)
