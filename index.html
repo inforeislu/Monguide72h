@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Guide 72h d'Autonomie — Lëtz prepare !</title>
+  <meta name="description" content="Application officielle de résilience civile et guide d'autonomie pour 72 heures au Luxembourg. Kit de préparation, plan personnel et alertes.">
+  <meta name="theme-color" content="#002B49">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+</head>
+<body>
+
+  <!-- Fullscreen Screen Flashlight Overlay -->
+  <div id="screen-flashlight">
+    <button type="button" onclick="toggleFlashlight(false)" data-i18n="closeFlashlight">Éteindre</button>
+  </div>
+
+  <!-- SOS Morse Screen Flasher Overlay -->
+  <div id="sos-morse-overlay">
+    <div class="sos-indicator">··· — — — ···</div>
+    <button type="button" onclick="toggleSosMorse(false)" data-i18n="exitSosMorse">Arrêter Balise SOS</button>
+  </div>
+
+  <!-- Top Emergency Bar -->
+  <div class="top-emergency-bar">
+    <div class="top-emergency-contacts">
+      <div class="country-selector-box">
+        <label for="country-select" class="sr-only">Pays d'urgence</label>
+        <select id="country-select" aria-label="Choisir le pays d'urgence">
+          <option value="lu">🇱🇺 Luxembourg</option>
+          <option value="fr">🇫🇷 France</option>
+          <option value="pt">🇵🇹 Portugal</option>
+          <option value="de">🇩🇪 Deutschland</option>
+          <option value="be">🇧🇪 Belgique</option>
+          <option value="es">🇪🇸 España</option>
+          <option value="it">🇮🇹 Italia</option>
+          <option value="nl">🇳🇱 Nederland</option>
+          <option value="pl">🇵🇱 Polska</option>
+          <option value="se">🇸🇪 Sverige</option>
+          <option value="fi">🇫🇮 Suomi</option>
+          <option value="at">🇦🇹 Österreich</option>
+          <option value="ie">🇮🇪 Ireland</option>
+          <option value="gr">🇬🇷 Ελλάδα</option>
+          <option value="eu">🇪🇺 Union Européenne</option>
+        </select>
+      </div>
+      <span id="country-emergency-title">🚨 LUXEMBOURG URGENCES :</span>
+      <a id="link-112" href="tel:112" class="emergency-link">📞 112 CGDIS (Secours)</a>
+      <a id="link-secondary" href="tel:113" class="emergency-link">🛡️ 113 Police</a>
+      <a id="link-crisis" href="tel:80027788" class="emergency-link">ℹ️ 8002 7788 Info-Crise</a>
+    </div>
+    <div class="top-bar-tools">
+      <button type="button" class="tool-pill-btn" id="nightvision-toggle-btn" onclick="toggleNightVision()">
+        🔴 <span data-i18n="nightVisionMode">Vision Nocturne</span>
+      </button>
+      <button type="button" class="tool-pill-btn" id="blackout-toggle-btn" onclick="toggleBlackout()">
+        🌙 <span data-i18n="blackoutMode">Mode Blackout (OLED)</span>
+      </button>
+      <button type="button" class="tool-pill-btn" onclick="toggleFlashlight(true)">
+        💡 <span data-i18n="flashlight">Lampe Écran</span>
+      </button>
+      <button type="button" class="tool-pill-btn" id="sos-morse-btn" onclick="toggleSosMorse(true)">
+        🚨 <span data-i18n="sosMorseMode">Balise SOS</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand-section">
+        <img src="assets/logo.png" alt="Lëtz Prepare" style="height: 46px; width: auto; border-radius: 8px; margin-right: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.3);">
+        <div class="brand-titles">
+          <h1 data-i18n="appTitle">Mon Guide 72h d'Autonomie</h1>
+          <p data-i18n="appSubtitle">Stratégie nationale de résilience — Le gouvernement du Grand-Duché de Luxembourg</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="lang-selector-box">
+          <span>🌐</span>
+          <select id="lang-select" aria-label="Choisir la langue">
+            <option value="fr">🇫🇷 Français</option>
+            <option value="lu">🇱🇺 Lëtzebuergesch</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="pt">🇵🇹 Português</option>
+            <option value="en">🇪🇺 English</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="it">🇮🇹 Italiano</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="nav-container">
+    <div class="nav-tabs">
+      <button class="nav-btn active" data-tab="tab-kit">
+        📦 <span data-i18n="navKit">Kit 72h & Calculateur</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-bag">
+        🎒 <span data-i18n="navBag">Sac d'Évacuation</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-plan">
+        📝 <span data-i18n="navPlan">Mon Plan d'Urgence</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-risks">
+        ⚠️ <span data-i18n="navRisks">Comprendre & Réagir</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-sirens">
+        🔊 <span data-i18n="navSirens">Alertes & Sirènes</span>
+      </button>
+      <button class="nav-btn" data-tab="tab-simulation">
+        ⏱️ <span data-i18n="navSimulation">Scénario 72h</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Application Body -->
+  <main class="main-wrapper">
+
+    <!-- ====================================================================
+         TAB 1: KIT 72H & CALCULATEUR
+         ==================================================================== -->
+    <section id="tab-kit" class="tab-pane active">
+      
+      <!-- Calculator Card -->
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" data-i18n="calcTitle">Calculateur de Réserves 72 Heures</h2>
+            <p class="card-subtitle" data-i18n="calcDesc">Calculez vos besoins vitaux minimaux pour tenir 3 jours complets en autonomie totale.</p>
+          </div>
+        </div>
+
+        <div class="calc-grid">
+          <div class="calc-input-box">
+            <label data-i18n="adultsLabel">Adultes (≥12 ans)</label>
+            <div class="counter-control">
+              <button class="counter-btn" data-target="adults" data-delta="-1" data-min="1">−</button>
+              <span class="counter-display" id="count-adults">2</span>
+              <button class="counter-btn" data-target="adults" data-delta="1" data-max="15">+</button>
+            </div>
+          </div>
+
+          <div class="calc-input-box">
+            <label data-i18n="childrenLabel">Enfants (2-11 ans)</label>
+            <div class="counter-control">
+              <button class="counter-btn" data-target="children" data-delta="-1" data-min="0">−</button>
+              <span class="counter-display" id="count-children">1</span>
+              <button class="counter-btn" data-target="children" data-delta="1" data-max="15">+</button>
+            </div>
+          </div>
+
+          <div class="calc-input-box">
+            <label data-i18n="babiesLabel">Bébés (&lt;2 ans)</label>
+            <div class="counter-control">
+              <button class="counter-btn" data-target="babies" data-delta="-1" data-min="0">−</button>
+              <span class="counter-display" id="count-babies">0</span>
+              <button class="counter-btn" data-target="babies" data-delta="1" data-max="10">+</button>
+            </div>
+          </div>
+
+          <div class="calc-input-box">
+            <label data-i18n="petsLabel">Animaux de compagnie</label>
+            <div class="counter-control">
+              <button class="counter-btn" data-target="pets" data-delta="-1" data-min="0">−</button>
+              <span class="counter-display" id="count-pets">1</span>
+              <button class="counter-btn" data-target="pets" data-delta="1" data-max="10">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculated Highlights -->
+        <div class="results-strip">
+          <div class="result-card water-card">
+            <div class="result-badge" id="water-total-litres">30 L</div>
+            <h4 data-i18n="waterResultTitle">Eau potable vitale</h4>
+            <p data-i18n="waterResultSubtitle">3 litres par personne et par jour (boisson + hygiène minimale)</p>
+            <p id="water-total-bottles" style="font-weight: bold; color: var(--accent-cyan); margin-top: 4px;">~ 20 bouteilles de 1,5L</p>
+          </div>
+
+          <div class="result-card">
+            <div class="result-badge" id="food-total-meals">27 repas</div>
+            <h4 data-i18n="foodResultTitle">Alimentation non périssable</h4>
+            <p data-i18n="foodResultSubtitle">Conserves, barres énergétiques, fruits secs, pâtes/riz sans cuisson complexe</p>
+          </div>
+
+          <div class="result-card" id="baby-result-card" style="display: none;">
+            <div class="result-badge">👶 Kit Bébé</div>
+            <h4 data-i18n="babyResultTitle">Besoins spécifiques bébés</h4>
+            <p data-i18n="babyResultSubtitle">Lait en poudre, petits pots, couches, lingettes stériles</p>
+          </div>
+
+          <div class="result-card" id="pet-result-card">
+            <div class="result-badge">🐾 Kit Animaux</div>
+            <h4 data-i18n="petResultTitle">Alimentation animaux</h4>
+            <p data-i18n="petResultSubtitle">Croquettes, boîtes et 1L d'eau supplémentaire par animal/jour</p>
+          </div>
+        </div>
+
+        <!-- Progress Tracker -->
+        <div class="progress-container">
+          <div class="progress-header">
+            <span data-i18n="kitProgress">Niveau de préparation du kit</span>
+            <span id="kit-progress-text">0%</span>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="kit-progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Official Checklist Categories -->
+        <div id="kit-items-list">
+          <!-- S'alimenter et cuisiner -->
+          <h3 class="checklist-category-title">
+            <span>🥫</span> <span data-i18n="catFoodWater">S'alimenter et cuisiner</span>
+          </h3>
+          <div class="checklist-items">
+            <label class="check-item">
+              <input type="checkbox" id="kit-water">
+              <span data-i18n="itemWater">Eau : au moins 3 litres par personne et par jour</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-food">
+              <span data-i18n="itemFood">Nourriture non périssable et facile à consommer (pensez aussi aux animaux)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-stove">
+              <span data-i18n="itemStove">Réchaud à gaz avec recharges (NE JAMAIS utiliser barbecue/brasero en intérieur)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-utensils">
+              <span data-i18n="itemUtensils">Outils de base : couteau multifonction, ouvre-boîte, ciseaux, stylo</span>
+            </label>
+          </div>
+
+          <!-- Rester au chaud -->
+          <h3 class="checklist-category-title">
+            <span>🔥</span> <span data-i18n="catWarmth">Rester au chaud</span>
+          </h3>
+          <div class="checklist-items">
+            <label class="check-item">
+              <input type="checkbox" id="kit-warmth">
+              <span data-i18n="itemWarmth">Sacs de couchage et/ou couvertures en laine ou thermiques</span>
+            </label>
+          </div>
+
+          <!-- S'éclairer -->
+          <h3 class="checklist-category-title">
+            <span>🔦</span> <span data-i18n="catLight">S'éclairer</span>
+          </h3>
+          <div class="checklist-items">
+            <label class="check-item">
+              <input type="checkbox" id="kit-torch">
+              <span data-i18n="itemTorch">Lampe torche ou frontale avec 2 jeux de piles de rechange (ou lampe dynamo)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-candles">
+              <span data-i18n="itemCandles">Bougies avec allumettes étanches ou briquet (utilisation surveillée)</span>
+            </label>
+          </div>
+
+          <!-- Se soigner & Hygiène -->
+          <h3 class="checklist-category-title">
+            <span>🩹</span> <span data-i18n="catHealth">Se soigner & Hygiène</span>
+          </h3>
+          <div class="checklist-items">
+            <label class="check-item">
+              <input type="checkbox" id="kit-firstaid">
+              <span data-i18n="itemFirstAid">Trousse médicale de premiers soins (pansements, compresses, désinfectant, paracétamol)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-meds">
+              <span data-i18n="itemMeds">Médicaments prescrits en cours (réserve de 7 jours minimum)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-iodine">
+              <span data-i18n="itemIodine">Comprimés d'iode (disponibles en commune, uniquement pour &lt;45 ans sur ordre des autorités)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-hygiene">
+              <span data-i18n="itemHygiene">Lingettes humides, papier toilette, savon et gel désinfectant</span>
+            </label>
+          </div>
+
+          <!-- S'informer & Communiquer -->
+          <h3 class="checklist-category-title">
+            <span>📻</span> <span data-i18n="catInfo">S'informer & Communiquer</span>
+          </h3>
+          <div class="checklist-items">
+            <label class="check-item">
+              <input type="checkbox" id="kit-radio">
+              <span data-i18n="itemRadio">Radio à piles ou à manivelle (FM/DAB+ RTL 88.9/92.5 MHz ou 100.7)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-powerbank">
+              <span data-i18n="itemPowerbank">Batterie externe (power bank) chargée à 100% avec câbles adaptés</span>
+            </label>
+          </div>
+
+          <!-- Documents & Finances -->
+          <h3 class="checklist-category-title">
+            <span>📑</span> <span data-i18n="catDocs">Documents & Finances</span>
+          </h3>
+          <div class="checklist-items">
+            <label class="check-item">
+              <input type="checkbox" id="kit-cash">
+              <span data-i18n="itemCash">Argent liquide en petites coupures (les distributeurs seront hors service)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-docs">
+              <span data-i18n="itemDocs">Copies des papiers d'identité et assurances dans une pochette étanche</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" id="kit-planpaper">
+              <span data-i18n="itemPlanPaper">Copie papier imprimée de Mon Plan Personnel d'Urgence</span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Expiry Tracker Card -->
+      <div class="card" style="margin-top: 24px;">
+        <div class="card-header" style="flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;">
+          <div>
+            <h2 class="card-title" data-i18n="expiryTitle">Suivi des Dates de Péremption du Kit</h2>
+            <p class="card-subtitle" data-i18n="expirySubtitle">Contrôlez les dates limites de vos réserves vitales pour assurer leur rotation et éviter les gaspillages.</p>
+          </div>
+          <button type="button" class="btn btn-outline" onclick="addNewExpiryPrompt()" data-i18n="expiryAddItem" style="padding: 8px 16px;">
+            + Ajouter un article
+          </button>
+        </div>
+
+        <div class="expiry-table-wrapper">
+          <table class="expiry-table">
+            <thead>
+              <tr>
+                <th data-i18n="expiryColItem">Article / Réserve</th>
+                <th data-i18n="expiryColDate">Date Limite</th>
+                <th data-i18n="expiryColStatus">Statut</th>
+                <th style="text-align: right;" data-i18n="expiryColAction">Action</th>
+              </tr>
+            </thead>
+            <tbody id="expiry-items-tbody">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         TAB 2: SAC D'ÉVACUATION
+         ==================================================================== -->
+    <section id="tab-bag" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" data-i18n="bagTitle">Sac d'Évacuation Rapide (Bug-out bag)</h2>
+            <p class="card-subtitle" data-i18n="bagSubtitle">Un sac à dos léger et prêt à emporter par personne en cas d'ordre d'évacuation immédiate.</p>
+          </div>
+        </div>
+
+        <div id="bag-items-list" class="checklist-items">
+          <label class="check-item">
+            <input type="checkbox" id="bag-water">
+            <span data-i18n="bagWater">Une ou deux bouteilles d'eau légères</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-food">
+            <span data-i18n="bagFood">Biscuits, noix ou barres énergétiques</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-meds">
+            <span data-i18n="bagMeds">Médicaments de traitement en cours et ordonnances</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-powerbank">
+            <span data-i18n="bagPowerbank">Batterie externe (power bank) et câbles correspondants</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-wallet">
+            <span data-i18n="bagWallet">Portefeuille avec pièces d'identité, argent liquide, cartes et papiers</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-keys">
+            <span data-i18n="bagKeys">Clés de la maison et de la voiture</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-firstaid">
+            <span data-i18n="bagFirstAid">Trousse médicale de premiers soins</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-hygiene">
+            <span data-i18n="bagHygiene">Produits d'hygiène essentiels et lingettes</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-clothes">
+            <span data-i18n="bagClothes">Vêtements de rechange adaptés et chaussures de marche solides</span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="bag-plancopy">
+            <span data-i18n="bagPlanCopy">Plan personnel d'urgence imprimé avec numéros de contact</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 3: MON PLAN PERSONNEL D'URGENCE
+         ==================================================================== -->
+    <section id="tab-plan" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" data-i18n="planTitle">Mon Plan Personnel d'Urgence</h2>
+            <p class="card-subtitle" data-i18n="planSubtitle">Remplissez ce plan en famille. Conservez-le sur votre téléphone et imprimez-le impérativement en version papier !</p>
+          </div>
+          <div class="plan-actions-bar">
+            <button type="button" class="btn-primary" onclick="window.print()">
+              🖨️ <span data-i18n="printBtn">Imprimer mon plan (A4)</span>
+            </button>
+            <button type="button" class="btn-primary btn-outline" onclick="exportDataJSON()">
+              💾 <span data-i18n="exportBtn">Sauvegarder (JSON)</span>
+            </button>
+            <label class="btn-primary btn-outline" style="cursor: pointer; margin: 0;">
+              📂 <span data-i18n="importBtn">Restaurer</span>
+              <input type="file" accept=".json" onchange="importDataJSON(event)" style="display: none;">
+            </label>
+            <button type="button" class="btn-primary btn-accent" onclick="resetAllData()">
+              🗑️ <span data-i18n="resetBtn">Réinitialiser</span>
+            </button>
+          </div>
+        </div>
+
+        <form id="emergency-plan-form" onsubmit="event.preventDefault(); savePlanData();">
+          
+          <!-- Head / Ownership -->
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Ce plan appartient à (Nom et Prénom) :</label>
+              <input type="text" id="plan-owner-name" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Adresse :</label>
+              <input type="text" id="plan-owner-address" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Ville / Commune :</label>
+              <input type="text" id="plan-owner-city" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Date de rédaction :</label>
+              <input type="date" id="plan-date-completed" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Mis à jour le :</label>
+              <input type="date" id="plan-date-updated" onchange="savePlanData()">
+            </div>
+          </div>
+
+          <!-- Section 1: Habitants du foyer -->
+          <div class="form-section-title">
+            <span data-i18n="secFoyer">1. Habitants du Foyer</span>
+            <button type="button" class="btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="addHouseholdMember()" data-i18n="addPerson">+ Ajouter un habitant</button>
+          </div>
+          <div id="members-container"></div>
+
+          <!-- Medical & Treatments -->
+          <div class="form-section-title">
+            <span>💊 Informations Médicales & Traitements</span>
+            <button type="button" class="btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="addMedicalEntry()">+ Ajouter une entrée</button>
+          </div>
+          <div id="meds-container"></div>
+
+          <!-- Pets -->
+          <div class="form-section-title">
+            <span>🐾 Animaux Domestiques</span>
+            <button type="button" class="btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="addPetEntry()" data-i18n="addPet">+ Ajouter un animal</button>
+          </div>
+          <div id="pets-container"></div>
+
+          <!-- Section 2: Le Foyer & Installations -->
+          <div class="form-section-title" data-i18n="secHouse">2. Installations & Sécurité de la Maison</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label data-i18n="shutWater">Robinet d'arrivée d'eau (emplacement & coupure) :</label>
+              <input type="text" id="house-water" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label data-i18n="shutGas">Robinet d'arrivée de gaz (emplacement & coupure) :</label>
+              <input type="text" id="house-gas" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label data-i18n="shutElec">Disjoncteur électrique / Compteur (emplacement) :</label>
+              <input type="text" id="house-elec" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label data-i18n="extinguisher">Extincteur / Couverture anti-feu (emplacement) :</label>
+              <input type="text" id="house-extinguisher" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label data-i18n="garageManual">Comment ouvrir la porte du garage sans électricité ?</label>
+              <input type="text" id="house-garage" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label data-i18n="escapeRoute">Par où sortir si la sortie principale est bloquée ?</label>
+              <input type="text" id="house-escape" onchange="savePlanData()">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Autres remarques spécifiques à la maison (panneaux solaires, cuve fioul, etc.) :</label>
+            <textarea id="house-notes" rows="2" onchange="savePlanData()"></textarea>
+          </div>
+
+          <!-- Section 3: Points de retrouvailles -->
+          <div class="form-section-title" data-i18n="secMeet">3. Points de Retrouvailles & Contact</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label data-i18n="meetPoint1">Point de ralliement 1 (Proche de la maison / dans le quartier) :</label>
+              <input type="text" id="meet-point-1" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label data-i18n="meetPoint2">Point de ralliement 2 (Hors du quartier si zone évacuée) :</label>
+              <input type="text" id="meet-point-2" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label data-i18n="schoolPickup">Qui va chercher les enfants à l'école si les parents sont bloqués ?</label>
+              <input type="text" id="school-pickup" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label data-i18n="outOfAreaContact">Contact hors région à joindre si les réseaux locaux sont saturés :</label>
+              <input type="text" id="out-of-area-contact" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Chez qui aller en cas d'urgence (Amis / Famille avec adresse & tél) :</label>
+              <input type="text" id="shelter-with-contact" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Itinéraire alternatif travail-domicile si transports à l'arrêt :</label>
+              <input type="text" id="work-commute-alt" onchange="savePlanData()">
+            </div>
+          </div>
+
+          <!-- Section 4: Réseau de quartier -->
+          <div class="form-section-title">
+            <span data-i18n="secSolidarity">4. Réseau d'Entraide du Quartier</span>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" class="btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="addNeighborEntry('helper')">+ Aidant</button>
+              <button type="button" class="btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="addNeighborEntry('needHelp')">+ À aider</button>
+            </div>
+          </div>
+          
+          <h4 style="margin: 12px 0 8px; color: var(--primary);" data-i18n="neighborHelpReceive">Personnes qui peuvent m'aider :</h4>
+          <div id="helpers-container"></div>
+
+          <h4 style="margin: 16px 0 8px; color: var(--primary);" data-i18n="neighborHelpGive">Personnes que je peux aider :</h4>
+          <div id="needhelp-container"></div>
+
+          <!-- Section 5: Fournisseurs & Numéros -->
+          <div class="form-section-title" data-i18n="secContacts">5. Numéros d'Urgence & Fournisseurs</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Opérateur télécom (N° client & Tél) :</label>
+              <input type="text" id="prov-telecom" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Électricité (Gestionnaire de réseau) :</label>
+              <input type="text" id="prov-elec" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Gaz :</label>
+              <input type="text" id="prov-gas" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Service des Eaux communal :</label>
+              <input type="text" id="prov-water" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Assurance Habitation (N° police) :</label>
+              <input type="text" id="prov-insurance" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Médecin traitant :</label>
+              <input type="text" id="prov-doctor" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>École / Crèche :</label>
+              <input type="text" id="prov-school" onchange="savePlanData()">
+            </div>
+            <div class="form-group">
+              <label>Banque / Agence :</label>
+              <input type="text" id="prov-bank" onchange="savePlanData()">
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- ICE Medical Card & Lockscreen Wallpaper Generator -->
+      <div class="card" style="margin-top: 24px;">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" data-i18n="iceTitle">Fiche Médicale ICE & Fond d'Écran Verrouillé</h2>
+            <p class="card-subtitle" data-i18n="iceSubtitle">Générez un fond d'écran haute visibilité avec vos données vitales pour les secours (112 / SAMU) sans déverrouiller votre téléphone.</p>
+          </div>
+        </div>
+
+        <div class="form-grid" style="margin-top: 16px;">
+          <div class="form-group">
+            <label data-i18n="iceNameLabel">Nom complet :</label>
+            <input type="text" id="ice-name" placeholder="Ex: Jean Dupont">
+          </div>
+          <div class="form-group">
+            <label data-i18n="iceBloodLabel">Groupe Sanguin :</label>
+            <select id="ice-blood" style="padding: 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-card); color: var(--text-main); font-weight: 700;">
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="Inconnu">Inconnu / Non renseigné</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="iceMatriculeLabel">Matricule (CNS - 13 chiffres) :</label>
+            <input type="text" id="ice-matricule" placeholder="Ex: 1985 04 12 12345">
+          </div>
+          <div class="form-group">
+            <label data-i18n="iceAllergiesLabel">Allergies critiques :</label>
+            <input type="text" id="ice-allergies" placeholder="Ex: Pénicilline, Arachides, Aucune">
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label data-i18n="iceMedsLabel">Traitements vitaux quotidiens :</label>
+            <input type="text" id="ice-meds" placeholder="Ex: Insuline, Bétabloquants, Inhalateur Asthme">
+          </div>
+          <div class="form-group">
+            <label data-i18n="iceContact1Label">Contact ICE 1 (Nom + Tél) :</label>
+            <input type="text" id="ice-contact1" placeholder="Ex: Marie Dupont (+352 691 123 456)">
+          </div>
+          <div class="form-group">
+            <label data-i18n="iceContact2Label">Contact ICE 2 (Nom + Tél) :</label>
+            <input type="text" id="ice-contact2" placeholder="Ex: Paul Dupont (+352 621 987 654)">
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start;">
+          <button type="button" class="btn btn-primary" onclick="generateAndDownloadICEWallpaper()" data-i18n="iceGenerateBtn" style="font-size: 1.05rem; padding: 14px 28px;">
+            📱 Générer & Télécharger le Fond d'Écran
+          </button>
+          <p style="font-size: 0.85rem; color: var(--text-muted);" data-i18n="iceNote">
+            Enregistrez l'image générée dans vos Photos et appliquez-la comme 'Écran Verrouillé'.
+          </p>
+        </div>
+        
+        <!-- Hidden Canvas for crisp high-resolution wallpaper generation -->
+        <canvas id="ice-wallpaper-canvas" width="1080" height="2340" style="display: none;"></canvas>
+      </div>
+
+    </section>
+
+    <!-- ====================================================================
+         TAB 4: COMPRENDRE & RÉAGIR (RISQUES)
+         ==================================================================== -->
+    <section id="tab-risks" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" data-i18n="risksTitle">Comprendre les Risques & Bons Réflexes</h2>
+            <p class="card-subtitle" data-i18n="risksSubtitle">Directives officielles pour chaque situation d'urgence au Luxembourg.</p>
+          </div>
+        </div>
+
+        <div class="risks-accordion">
+          
+          <!-- Weather -->
+          <div class="risk-card">
+            <div class="risk-card-header">
+              <span>🌪️ <strong data-i18n="riskWeatherTitle">Phénomènes Météo & Tempêtes</strong></span>
+            </div>
+            <div class="risk-card-body">
+              <p data-i18n="riskWeatherText">Limitez vos déplacements au strict minimum. Mettez à l'abri les objets susceptibles d'être emportés par le vent. Fermez volets et fenêtres. En cas de canicule, hydratez-vous régulièrement.</p>
+              <div class="risk-links">
+                <a href="https://meteolux.lu" target="_blank" rel="noopener" class="pill-link">☁️ MeteoLux.lu</a>
+                <a href="https://santesecu.public.lu" target="_blank" rel="noopener" class="pill-link">🏥 SantéSécu.public.lu</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floods -->
+          <div class="risk-card flood">
+            <div class="risk-card-header">
+              <span>🌊 <strong data-i18n="riskFloodTitle">Inondations & Crues</strong></span>
+            </div>
+            <div class="risk-card-body">
+              <p data-i18n="riskFloodText">Surélevez les appareils électroménagers et produits chimiques dans les caves. Éloignez les véhicules des berges. Coupez le courant des pièces inondables. Ne marchez JAMAIS dans une eau susceptible d'être sous tension. Évitez sous-sols et parkings.</p>
+              <div class="risk-links">
+                <a href="https://inondations.lu" target="_blank" rel="noopener" class="pill-link">🌊 Inondations.lu</a>
+                <a href="https://eau.geoportail.lu" target="_blank" rel="noopener" class="pill-link">🗺️ Cartes zones inondables (eau.geoportail.lu)</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cyber -->
+          <div class="risk-card">
+            <div class="risk-card-header">
+              <span>💻 <strong data-i18n="riskCyberTitle">Cyberattaques & Pannes Réseau</strong></span>
+            </div>
+            <div class="risk-card-body">
+              <p data-i18n="riskCyberText">Ne communiquez jamais de mots de passe ou coordonnées bancaires par message. Visitez les sites officiels plutôt que de cliquer sur des liens. En cas d'attaque bancaire, contactez Worldline immédiatement et déconnectez les appareils infectés.</p>
+              <div class="risk-links">
+                <a href="https://cybersecurity.lu" target="_blank" rel="noopener" class="pill-link">🛡️ Cybersecurity.lu</a>
+                <a href="https://bee-secure.lu" target="_blank" rel="noopener" class="pill-link">🐝 Bee-Secure.lu (Tel: 8002 1234)</a>
+                <a href="https://cyberfraud.lu" target="_blank" rel="noopener" class="pill-link">💳 CyberFraud.lu</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terror -->
+          <div class="risk-card severe">
+            <div class="risk-card-header">
+              <span>⚠️ <strong data-i18n="riskTerrorTitle">Menace Terroriste</strong></span>
+            </div>
+            <div class="risk-card-body">
+              <p data-i18n="riskTerrorText">Soyez attentif à votre environnement. Ne touchez jamais un sac abandonné. En cas d'attaque : Éloignez-vous sans vous exposer, mettez-vous à l'abri, fermez et bloquez les accès, silence complet, alertez les forces de l'ordre (113).</p>
+              <div class="risk-links">
+                <a href="tel:113" class="pill-link" style="border-color: var(--accent-red); color: var(--accent-red);">📞 Police Lëtzebuerg (113)</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nuclear -->
+          <div class="risk-card nuclear">
+            <div class="risk-card-header">
+              <span>☢️ <strong data-i18n="riskNuclearTitle">Accident Nucléaire</strong></span>
+            </div>
+            <div class="risk-card-body">
+              <p data-i18n="riskNuclearText">Mettez-vous à l'abri dans un bâtiment fermé. Arrêtez les ventilations, climatiseurs et fermez fenêtres/volets. Sortez vos comprimés d'iode : NE LES PRENEZ QUE SUR ORDRE FORMEL des autorités (recommandé uniquement pour les &lt;45 ans).</p>
+              <div class="risk-links">
+                <a href="https://infocrise.lu" target="_blank" rel="noopener" class="pill-link">ℹ️ Infocrise.lu</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 5: ALERTES & SIRÈNES (LU-ALERT)
+         ==================================================================== -->
+    <section id="tab-sirens" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" data-i18n="sirensTitle">Système d'Alerte & Sirènes Nationales</h2>
+            <p class="card-subtitle" data-i18n="sirensSubtitle">Le Luxembourg utilise des sirènes et le système LU-Alert (Cell Broadcast & SMS). Apprenez à reconnaître les signaux sonores.</p>
+          </div>
+        </div>
+
+        <!-- Siren Acoustic Simulators (Web Audio API) -->
+        <div class="siren-simulator-grid">
+          
+          <div class="siren-card">
+            <div>
+              <span class="siren-badge-spec">60 SECONDES</span>
+              <h4 data-i18n="sirenTest">1. Test Mensuel</h4>
+              <p data-i18n="sirenTestDesc">Tonalité continue. Effectué le 1er lundi de chaque mois à midi. Aucune action requise.</p>
+            </div>
+            <button class="siren-audio-btn" type="button" onclick="playSiren('test', this)" data-i18n="playAudio">
+              ▶️ Écouter la simulation sonore
+            </button>
+          </div>
+
+          <div class="siren-card">
+            <div>
+              <span class="siren-badge-spec">2 MINUTES</span>
+              <h4 data-i18n="sirenAlert">2. Signal d'Alerte</h4>
+              <p data-i18n="sirenAlertDesc">Tonalité continue prolongée. Mettez-vous en sécurité, rentrez à l'intérieur, écoutez la radio et consultez LU-Alert.</p>
+            </div>
+            <button class="siren-audio-btn" type="button" onclick="playSiren('alert', this)" data-i18n="playAudio">
+              ▶️ Écouter la simulation sonore
+            </button>
+          </div>
+
+          <div class="siren-card">
+            <div>
+              <span class="siren-badge-spec">60 SECONDES</span>
+              <h4 data-i18n="sirenAlarm">3. Signal National d'Alarme</h4>
+              <p data-i18n="sirenAlarmDesc">Tonalité montante et descendante. Danger imminent ! Mettez-vous immédiatement à l'abri dans un bâtiment solide.</p>
+            </div>
+            <button class="siren-audio-btn" type="button" onclick="playSiren('alarm', this)" data-i18n="playAudio">
+              ▶️ Écouter la simulation sonore
+            </button>
+          </div>
+
+          <div class="siren-card">
+            <div>
+              <span class="siren-badge-spec">60 SECONDES (12s / PAUSE)</span>
+              <h4 data-i18n="sirenEnd">4. Fin d'Alarme</h4>
+              <p data-i18n="sirenEndDesc">Tonalité avec interruptions. Le danger est écarté. Reprise normale des activités autorisée.</p>
+            </div>
+            <button class="siren-audio-btn" type="button" onclick="playSiren('end', this)" data-i18n="playAudio">
+              ▶️ Écouter la simulation sonore
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Levels of Alert Bar -->
+        <h3 style="margin: 24px 0 12px; color: var(--primary);">Niveaux de Vigilance Officiels (LU-Alert)</h3>
+        <div class="levels-bar-box">
+          <div class="level-chip yellow">
+            <strong>JAUNE / ATTENTION</strong>
+            <p style="font-size: 0.8rem; margin-top: 4px;">Faible risque / danger potentiel</p>
+          </div>
+          <div class="level-chip orange">
+            <strong>ORANGE / PRUDENCE</strong>
+            <p style="font-size: 0.8rem; margin-top: 4px;">Risque moyen / danger avéré</p>
+          </div>
+          <div class="level-chip red">
+            <strong>ROUGE / VIGILANCE ABSOLUE</strong>
+            <p style="font-size: 0.8rem; margin-top: 4px;">Risque élevé / danger important</p>
+          </div>
+          <div class="level-chip purple">
+            <strong>VIOLET / IMMINENT</strong>
+            <p style="font-size: 0.8rem; margin-top: 4px;">Danger imminent / action immédiate</p>
+          </div>
+        </div>
+
+        <!-- Resilient Emergency Radio Guide -->
+        <div class="card" style="margin-top: 24px; border-left: 4px solid var(--accent-cyan);">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title" data-i18n="radioGuideTitle">Fréquences Radio Résilientes d'Urgence</h3>
+              <p class="card-subtitle" data-i18n="radioGuideSubtitle">En cas de panne totale des réseaux cellulaires (4G/5G/Internet), la radio FM est le canal d'information prioritaire officiel.</p>
+            </div>
+          </div>
+
+          <div class="radio-grid">
+            <div class="radio-station-card">
+              <div>
+                <strong>🇱🇺 RTL Radio Lëtzebuerg</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Dudelange (Sud / Centre) • Émetteur National</p>
+              </div>
+              <span class="radio-freq-badge">88.9 MHz</span>
+            </div>
+
+            <div class="radio-station-card">
+              <div>
+                <strong>🇱🇺 RTL Radio Lëtzebuerg</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Hosingen (Nord / Ardennes)</p>
+              </div>
+              <span class="radio-freq-badge">92.5 MHz</span>
+            </div>
+
+            <div class="radio-station-card">
+              <div>
+                <strong>🇱🇺 Radio 100.7</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Radio Publique • Informations Gouvernement</p>
+              </div>
+              <span class="radio-freq-badge">100.7 MHz</span>
+            </div>
+
+            <div class="radio-station-card">
+              <div>
+                <strong>🇱🇺 Eldoradio</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Luxembourg Ville & Région Centre</p>
+              </div>
+              <span class="radio-freq-badge">105.0 MHz</span>
+            </div>
+
+            <div class="radio-station-card">
+              <div>
+                <strong>🇫🇷 France Info</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Frontière Sud (Lorraine / Thionville)</p>
+              </div>
+              <span class="radio-freq-badge">105.5 MHz</span>
+            </div>
+
+            <div class="radio-station-card">
+              <div>
+                <strong>🇩🇪 SWR3</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Frontière Est (Trèves / Rhénanie)</p>
+              </div>
+              <span class="radio-freq-badge">98.5 MHz</span>
+            </div>
+
+            <div class="radio-station-card">
+              <div>
+                <strong>🇧🇪 RTBF La Première</strong>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Frontière Ouest (Arlon / Wallonie)</p>
+              </div>
+              <span class="radio-freq-badge">96.4 MHz</span>
+            </div>
+          </div>
+
+          <div style="margin-top: 16px; font-size: 0.85rem; color: var(--text-muted); background: var(--bg-elevated); padding: 12px 16px; border-radius: var(--radius-sm);">
+            💡 <strong>Règle d'or :</strong> Les bulletins officiels de crise sont diffusés à chaque heure pile et à la demi-heure. Économisez les piles de votre récepteur en éteignant la radio entre les bulletins.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 6: SCÉNARIO 72H (SIMULATION)
+         ==================================================================== -->
+    <section id="tab-simulation" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title" data-i18n="simTitle">Simulation : 72h de Coupure Générale</h2>
+            <p class="card-subtitle" data-i18n="simSubtitle">Plongez dans le déroulement chronologique d'un black-out au Luxembourg.</p>
+          </div>
+        </div>
+
+        <div class="timeline-72h">
+          
+          <div class="timeline-step">
+            <h3 data-i18n="simDay1Title">Jour 1 — Le Choc & La Nuit</h3>
+            <p data-i18n="simDay1Text">Coupure brutale en hiver. Trafic paralysé, trains à l'arrêt, télécoms instables. Retour au domicile, vérification des voisins vulnérables, préparation du réchaud, de l'éclairage de secours et des réserves d'eau avant coupure des châteaux d'eau.</p>
+            <div style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">
+              <strong>Réflexes clés :</strong> Remplir récipients d'eau tant qu'il y a de la pression • Ne pas ouvrir inutilement le congélateur • Brancher smartphone sur powerbank • Écouter RTL Radio (88.9 / 92.5 MHz).
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <h3 data-i18n="simDay2Title">Jour 2 — Le Froid & La Routine</h3>
+            <p data-i18n="simDay2Text">Pas de chauffage ni de chasse d'eau. Préservation du froid des aliments dehors. Économie draconienne de la batterie du téléphone. Écoute des bulletins officiels sur radio à piles. Débranchement des gros appareils pour éviter la surtension au retour du courant.</p>
+            <div style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">
+              <strong>Réflexes clés :</strong> Ne jamais allumer de barbecue à l'intérieur (danger mortel monoxyde) • Se déplacer à vélo si carburant indisponible • Débrancher PC et voiture électrique pour protéger le réseau.
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <h3 data-i18n="simDay3Title">Jour 3 — La Solidarité & Le Rétablissement</h3>
+            <p data-i18n="simDay3Text">Entraide de quartier active. Ouverture des centres d'accueil communaux (RESILIENZBONUS) avec salles chauffées et recharge d'urgence. Annonce du retour progressif du courant zone par zone.</p>
+            <div style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">
+              <strong>Réflexes clés :</strong> Café des langues pour informer les résidents non-francophones ou non-luxembourgophones • Rebrancher progressivement les appareils • Faire le bilan du kit pour le compléter.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div>
+        <p><strong>Lëtz prepare ! — Stratégie nationale de résilience</strong></p>
+        <p>Ministère d’État / Haut-Commissariat à la Protection nationale — Luxembourg (Octobre 2026)</p>
+      </div>
+      <div>
+        <p>100% Fonctionnel Hors-Ligne (PWA) • Données sécurisées sur votre appareil</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

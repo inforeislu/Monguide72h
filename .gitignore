@@ -1,0 +1,25 @@
+# macOS system files
+.DS_Store
+*.swp
+*~
+
+# Android Build artifacts
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/.idea/
+android/.kotlin/
+*.hprof
+
+# iOS Build artifacts
+ios/build/
+ios/.build/
+*.xcuserstate
+xcuserdata/
+DerivedData/
+
+# IDE files
+.idea/
+.vscode/*
+!.vscode/settings.json

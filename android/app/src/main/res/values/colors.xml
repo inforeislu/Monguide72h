@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lux_blue">#002B49</color>
+    <color name="lux_red">#EA152C</color>
+    <color name="lux_light_blue">#00A3E0</color>
+    <color name="lux_background_dark">#0A0F1A</color>
+    <color name="lux_surface_dark">#121D2F</color>
+    <color name="lux_card_dark">#18263E</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>

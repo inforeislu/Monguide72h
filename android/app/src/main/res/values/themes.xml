@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MonGuide72h" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/lux_blue</item>
+        <item name="android:navigationBarColor">@color/lux_background_dark</item>
+        <item name="android:windowBackground">@color/lux_background_dark</item>
+    </style>
+</resources>
