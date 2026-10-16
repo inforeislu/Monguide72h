@@ -231,7 +231,13 @@ const I18N = {
     qrSuccess: "Plan d urgence familial importé avec succès !",
     qrError: "Code QR non reconnu ou format invalide." ,
     listenBtn: "Écouter",
-    voiceGuideBarTitle: "Guide Vocal d Urgence"
+    voiceGuideBarTitle: "Guide Vocal d Urgence",
+    lurefBtn: "GPS & LUREF",
+    lurefModalTitle: "📍 Balise GPS & LUREF (Secours 112)",
+    lurefModalSub: "Coordonnées officielles du Luxembourg (EPSG:2169) pour localisation immédiate par le CGDIS et hélicoptères (LAR).",
+    lurefPhoneticTitle: "Phrase à lire à haute voix au 112 :",
+    lurefCopyPhrase: "Copier la phrase",
+    lurefSendSms: "Envoyer SMS Secours"
   },
 
   en: {
@@ -448,7 +454,13 @@ const I18N = {
     qrSuccess: "Family emergency plan imported successfully!",
     qrError: "Unrecognized QR code or invalid format." ,
     listenBtn: "Listen",
-    voiceGuideBarTitle: "Emergency Voice Guide"
+    voiceGuideBarTitle: "Emergency Voice Guide",
+    lurefBtn: "GPS & LUREF",
+    lurefModalTitle: "📍 GPS & LUREF Beacon (112 Rescue)",
+    lurefModalSub: "Official Luxembourg coordinates (EPSG:2169) for instant rescue localization by CGDIS and air rescue (LAR).",
+    lurefPhoneticTitle: "Sentence to read out loud to 112:",
+    lurefCopyPhrase: "Copy sentence",
+    lurefSendSms: "Send Emergency SMS"
   },
 
   lu: {
@@ -665,7 +677,13 @@ const I18N = {
     qrSuccess: "Famillje-Noutplang erfollegräich importéiert!",
     qrError: "QR Code net erkannt oder ongëltegt Format." ,
     listenBtn: "Nolauschteren",
-    voiceGuideBarTitle: "Noutfall Stëmmguide"
+    voiceGuideBarTitle: "Noutfall Stëmmguide",
+    lurefBtn: "GPS & LUREF",
+    lurefModalTitle: "📍 GPS & LUREF Noutfall-Standuert (112)",
+    lurefModalSub: "Offiziell Lëtzebuerger Koordinaten (EPSG:2169) fir séier Lokalisatioun duerch de CGDIS a Rettungshelikopter (LAR).",
+    lurefPhoneticTitle: "Saz fir haart um 112 virzeliesen:",
+    lurefCopyPhrase: "Saz kopéieren",
+    lurefSendSms: "Noutfall-SMS schécken"
   },
 
   de: {
@@ -882,7 +900,13 @@ const I18N = {
     qrSuccess: "Familien-Notfallplan erfolgreich importiert!",
     qrError: "QR-Code nicht erkannt oder ungültiges Format." ,
     listenBtn: "Anhören",
-    voiceGuideBarTitle: "Notfall-Sprachführer"
+    voiceGuideBarTitle: "Notfall-Sprachführer",
+    lurefBtn: "GPS & LUREF",
+    lurefModalTitle: "📍 GPS & LUREF Notfallbake (112 Rettung)",
+    lurefModalSub: "Offizielle Koordinaten Luxemburgs (EPSG:2169) für sofortige Ortung durch CGDIS und Rettungshubschrauber (LAR).",
+    lurefPhoneticTitle: "Satz zum lauten Vorlesen bei Notruf 112:",
+    lurefCopyPhrase: "Satz kopieren",
+    lurefSendSms: "Notfall-SMS senden"
   },
 
   es: {
@@ -1099,7 +1123,13 @@ const I18N = {
     qrSuccess: "¡Plan de emergencia familiar importado con éxito!",
     qrError: "Código QR no reconocido o formato no válido." ,
     listenBtn: "Escuchar",
-    voiceGuideBarTitle: "Guía de Voz de Emergencia"
+    voiceGuideBarTitle: "Guía de Voz de Emergencia",
+    lurefBtn: "GPS & LUREF",
+    lurefModalTitle: "📍 Baliza GPS & LUREF (Rescate 112)",
+    lurefModalSub: "Coordenadas oficiales de Luxemburgo (EPSG:2169) para localización inmediata por el CGDIS y helicópteros (LAR).",
+    lurefPhoneticTitle: "Frase para leer en voz alta al 112:",
+    lurefCopyPhrase: "Copiar frase",
+    lurefSendSms: "Enviar SMS de Emergencia"
   },
 
   it: {
@@ -1316,7 +1346,13 @@ const I18N = {
     qrSuccess: "Piano di emergenza familiare importato con successo!",
     qrError: "Codice QR non riconosciuto o formato non valido." ,
     listenBtn: "Ascolta",
-    voiceGuideBarTitle: "Guida Vocale di Emergenza"
+    voiceGuideBarTitle: "Guida Vocale di Emergenza",
+    lurefBtn: "GPS & LUREF",
+    lurefModalTitle: "📍 Segnale GPS & LUREF (Soccorso 112)",
+    lurefModalSub: "Coordinate ufficiali del Lussemburgo (EPSG:2169) per la localizzazione immediata da parte di CGDIS ed elicotteri (LAR).",
+    lurefPhoneticTitle: "Frase da leggere a voce alta al 112:",
+    lurefCopyPhrase: "Copia frase",
+    lurefSendSms: "Invia SMS di Soccorso"
   },
 
   pt: {
@@ -1533,6 +1569,12 @@ const I18N = {
     qrSuccess: "Plano de emergência familiar importado com sucesso!",
     qrError: "Código QR não reconhecido ou formato inválido." ,
     listenBtn: "Ouvir",
-    voiceGuideBarTitle: "Guia Vocal de Emergência"
+    voiceGuideBarTitle: "Guia Vocal de Emergência",
+    lurefBtn: "GPS & LUREF",
+    lurefModalTitle: "📍 Baliza GPS & LUREF (Socorro 112)",
+    lurefModalSub: "Coordenadas oficiais do Luxemburgo (EPSG:2169) para localização imediata pelo CGDIS e helicópteros (LAR).",
+    lurefPhoneticTitle: "Frase para ler em voz alta ao 112:",
+    lurefCopyPhrase: "Copiar frase",
+    lurefSendSms: "Enviar SMS de Socorro"
   }
 };

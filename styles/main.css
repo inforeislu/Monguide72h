@@ -1527,3 +1527,69 @@ body.night-vision-mode .radio-freq-badge {
 .btn-voice-ctrl:hover {
   background: #00A1DE;
 }
+
+/* LUREF & GPS Emergency Coordinates Modal */
+.luref-highlight-card {
+  background: linear-gradient(135deg, rgba(0, 43, 73, 0.95), rgba(0, 161, 222, 0.3));
+  border: 1.5px solid #00A1DE;
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 161, 222, 0.2);
+}
+
+.luref-coords-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.luref-coord-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+}
+
+.luref-coord-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.luref-coord-value {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  font-family: monospace;
+  margin-top: 4px;
+}
+
+.phonetic-call-card {
+  background: rgba(234, 40, 57, 0.15);
+  border: 1.5px solid rgba(234, 40, 57, 0.6);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.phonetic-call-card h4 {
+  margin: 0 0 6px 0;
+  font-size: 0.9rem;
+  color: #EA141D;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phonetic-call-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0 0 10px 0;
+}

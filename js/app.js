@@ -1626,3 +1626,222 @@ function stopVoiceGuide() {
   if (bar) bar.classList.remove("active");
   document.querySelectorAll(".btn-voice-mini").forEach(btn => btn.classList.remove("active"));
 }
+
+// ==========================================
+// LUREF (EPSG:2169) & EMERGENCY GPS BEACON
+// ==========================================
+
+let lurefWatchId = null;
+let currentLurefCoords = null;
+
+/**
+ * Converts WGS84 Geodetic coordinates (lat, lon in degrees) to official LUREF (EPSG:2169) coordinates in meters.
+ * Uses exact Hayford 1909 ellipsoid with Bursa-Wolf 7-parameter datum shift.
+ */
+function wgs84ToLuref(latDeg, lonDeg, heightM = 300.0) {
+  const aWgs = 6378137.0;
+  const fWgs = 1.0 / 298.257223563;
+  const bWgs = aWgs * (1.0 - fWgs);
+  const e2Wgs = (aWgs * aWgs - bWgs * bWgs) / (aWgs * aWgs);
+
+  const aLu = 6378388.0;
+  const fLu = 1.0 / 297.0;
+  const bLu = aLu * (1.0 - fLu);
+  const e2Lu = (aLu * aLu - bLu * bLu) / (aLu * aLu);
+  const ePrime2Lu = (aLu * aLu - bLu * bLu) / (bLu * bLu);
+
+  const latW = (latDeg * Math.PI) / 180.0;
+  const lonW = (lonDeg * Math.PI) / 180.0;
+
+  const sinLatW = Math.sin(latW);
+  const cosLatW = Math.cos(latW);
+  const sinLonW = Math.sin(lonW);
+  const cosLonW = Math.cos(lonW);
+  const NW = aWgs / Math.sqrt(1.0 - e2Wgs * sinLatW * sinLatW);
+
+  const XW = (NW + heightM) * cosLatW * cosLonW;
+  const YW = (NW + heightM) * cosLatW * sinLonW;
+  const ZW = (NW * (1.0 - e2Wgs) + heightM) * sinLatW;
+
+  const dx = -193.0;
+  const dy = 13.7;
+  const dz = -39.3;
+  const rx = (-0.41 / 3600.0) * (Math.PI / 180.0);
+  const ry = (-2.933 / 3600.0) * (Math.PI / 180.0);
+  const rz = (2.688 / 3600.0) * (Math.PI / 180.0);
+  const s = 0.43 * 1e-6;
+
+  const XL = XW - dx - s * XW - (-rz * YW + ry * ZW);
+  const YL = YW - dy - s * YW - (rz * XW - rx * ZW);
+  const ZL = ZW - dz - s * ZW - (-ry * XW + rx * YW);
+
+  const p = Math.sqrt(XL * XL + YL * YL);
+  const theta = Math.atan2(ZL * aLu, p * bLu);
+  const latL = Math.atan2(
+    ZL + ePrime2Lu * bLu * Math.pow(Math.sin(theta), 3),
+    p - e2Lu * aLu * Math.pow(Math.cos(theta), 3)
+  );
+  const lonL = Math.atan2(YL, XL);
+
+  const lat0 = (49.0 + 50.0 / 60.0) * (Math.PI / 180.0);
+  const lon0 = (6.0 + 10.0 / 60.0) * (Math.PI / 180.0);
+  const FE = 80000.0;
+  const FN = 100000.0;
+  const k0 = 1.0;
+
+  function meridianArc(phi) {
+    return aLu * (
+      (1.0 - e2Lu / 4.0 - 3.0 * Math.pow(e2Lu, 2) / 64.0 - 5.0 * Math.pow(e2Lu, 3) / 256.0) * phi
+      - (3.0 * e2Lu / 8.0 + 3.0 * Math.pow(e2Lu, 2) / 32.0 + 45.0 * Math.pow(e2Lu, 3) / 1024.0) * Math.sin(2.0 * phi)
+      + (15.0 * Math.pow(e2Lu, 2) / 256.0 + 45.0 * Math.pow(e2Lu, 3) / 1024.0) * Math.sin(4.0 * phi)
+      - (35.0 * Math.pow(e2Lu, 3) / 3072.0) * Math.sin(6.0 * phi)
+    );
+  }
+
+  const M = meridianArc(latL);
+  const M0 = meridianArc(lat0);
+  const dlon = lonL - lon0;
+
+  const N = aLu / Math.sqrt(1.0 - e2Lu * Math.sin(latL) * Math.sin(latL));
+  const T = Math.pow(Math.tan(latL), 2);
+  const C = ePrime2Lu * Math.pow(Math.cos(latL), 2);
+  const A = dlon * Math.cos(latL);
+
+  const East = FE + k0 * N * (
+    A + (1.0 - T + C) * Math.pow(A, 3) / 6.0
+    + (5.0 - 18.0 * T + T * T + 72.0 * C - 58.0 * ePrime2Lu) * Math.pow(A, 5) / 120.0
+  );
+
+  const North = FN + k0 * (
+    M - M0 + N * Math.tan(latL) * (
+      Math.pow(A, 2) / 2.0
+      + (5.0 - T + 9.0 * C + 4.0 * C * C) * Math.pow(A, 4) / 24.0
+      + (61.0 - 58.0 * T + T * T + 600.0 * C - 330.0 * ePrime2Lu) * Math.pow(A, 6) / 720.0
+    )
+  );
+
+  return { east: East, north: North };
+}
+
+function decimalToDMS(deg, isLat) {
+  const absolute = Math.abs(deg);
+  const d = Math.floor(absolute);
+  const m = Math.floor((absolute - d) * 60);
+  const s = ((absolute - d - m / 60) * 3600).toFixed(1);
+  const dir = isLat ? (deg >= 0 ? "N" : "S") : (deg >= 0 ? "E" : "W");
+  return `${d}° ${m.toString().padStart(2, "0")}' ${s.padStart(4, "0")}" ${dir}`;
+}
+
+function openLurefModal() {
+  const modal = document.getElementById("modal-luref");
+  if (modal) modal.style.display = "flex";
+  startLurefTracking();
+}
+
+function closeLurefModal() {
+  const modal = document.getElementById("modal-luref");
+  if (modal) modal.style.display = "none";
+  stopLurefTracking();
+}
+
+function startLurefTracking() {
+  if (!navigator.geolocation) {
+    alert("La géolocalisation n'est pas disponible sur cet appareil.");
+    return;
+  }
+
+  const options = {
+    enableHighAccuracy: true,
+    timeout: 15000,
+    maximumAge: 0
+  };
+
+  lurefWatchId = navigator.geolocation.watchPosition(
+    pos => {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      const acc = Math.round(pos.coords.accuracy || 0);
+      const alt = pos.coords.altitude ? Math.round(pos.coords.altitude) : null;
+      const heading = pos.coords.heading ? Math.round(pos.coords.heading) : null;
+
+      const luref = wgs84ToLuref(lat, lon, alt || 300.0);
+      currentLurefCoords = { lat, lon, acc, alt, luref };
+
+      const valX = document.getElementById("luref-val-x");
+      const valY = document.getElementById("luref-val-y");
+      const badgeAcc = document.getElementById("luref-accuracy-badge");
+      const wgsDec = document.getElementById("wgs-val-dec");
+      const wgsDms = document.getElementById("wgs-val-dms");
+      const gpsAlt = document.getElementById("gps-val-alt");
+      const gpsHeading = document.getElementById("gps-val-heading");
+      const phraseEl = document.getElementById("luref-phonetic-phrase");
+
+      const eastFormatted = Math.round(luref.east).toLocaleString("fr-FR");
+      const northFormatted = Math.round(luref.north).toLocaleString("fr-FR");
+
+      if (valX) valX.textContent = `${eastFormatted} m`;
+      if (valY) valY.textContent = `${northFormatted} m`;
+      if (badgeAcc) badgeAcc.textContent = `±${acc} m`;
+      if (wgsDec) wgsDec.textContent = `${lat.toFixed(5)}° N, ${lon.toFixed(5)}° E`;
+      if (wgsDms) wgsDms.textContent = `${decimalToDMS(lat, true)}, ${decimalToDMS(lon, false)}`;
+      if (gpsAlt) gpsAlt.textContent = alt ? `${alt} m` : "-- m";
+      if (gpsHeading) gpsHeading.textContent = heading ? `${heading}°` : "--°";
+
+      const phoneticSentence = `"112 CGDIS : Je suis localisé au Luxembourg. Coordonnées LUREF Est : ${Math.round(luref.east)}, Nord : ${Math.round(luref.north)} (Précision : ±${acc}m). GPS : ${lat.toFixed(5)} N, ${lon.toFixed(5)} E."`;
+      if (phraseEl) phraseEl.textContent = phoneticSentence;
+    },
+    err => {
+      console.warn("Geolocation watch error:", err);
+      const wgsDec = document.getElementById("wgs-val-dec");
+      if (wgsDec) wgsDec.textContent = "Signal GPS faible ou refusé";
+    },
+    options
+  );
+}
+
+function stopLurefTracking() {
+  if (lurefWatchId !== null) {
+    navigator.geolocation.clearWatch(lurefWatchId);
+    lurefWatchId = null;
+  }
+}
+
+function copyLurefPhoneticPhrase() {
+  const phraseEl = document.getElementById("luref-phonetic-phrase");
+  const text = phraseEl ? phraseEl.textContent.trim() : "";
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Phrase d'urgence copiée ! Vous pouvez la coller dans vos messages ou la lire au 112.");
+  }).catch(() => {
+    prompt("Copiez votre phrase d'urgence :", text);
+  });
+}
+
+function sendEmergencySMS() {
+  if (!currentLurefCoords) {
+    alert("Attendez la stabilisation du signal GPS.");
+    return;
+  }
+  const { lat, lon, acc, luref } = currentLurefCoords;
+  const msg = `URGENCE SECOURS LUXEMBOURG : Ma position est LUREF Est: ${Math.round(luref.east)}, Nord: ${Math.round(luref.north)} (Précision ±${acc}m). GPS: https://maps.google.com/?q=${lat},${lon}`;
+  window.open(`sms:112?body=${encodeURIComponent(msg)}`);
+}
+
+function convertManualWgsToLuref() {
+  const latInput = document.getElementById("manual-conv-lat");
+  const lonInput = document.getElementById("manual-conv-lon");
+  const resEl = document.getElementById("manual-conv-result");
+  if (!latInput || !lonInput || !resEl) return;
+
+  const lat = parseFloat(latInput.value);
+  const lon = parseFloat(lonInput.value);
+  if (isNaN(lat) || isNaN(lon)) {
+    resEl.textContent = "Veuillez entrer une latitude et longitude valides.";
+    resEl.style.color = "#ff4444";
+    return;
+  }
+
+  const luref = wgs84ToLuref(lat, lon);
+  resEl.style.color = "#00D66F";
+  resEl.textContent = `LUREF Est : ${Math.round(luref.east).toLocaleString("fr-FR")} m | Nord : ${Math.round(luref.north).toLocaleString("fr-FR")} m`;
+}
