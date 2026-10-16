@@ -29,6 +29,11 @@ Toutes les modifications notables apportées à ce projet sont documentées dans
 * Sélecteur de pays d'urgence dynamique avec support de 15 pays européens.
 * Harmonisation multilingue sur 7 langues officielles et régionales (FR, LU, DE, PT, EN, ES, IT).
 
+### ⚙️ Automatisation CI/CD (GitHub Actions)
+* Déploiement automatisé du Web PWA vers GitHub Pages avec HTTPS (`deploy-pwa.yml`).
+* Pipeline de compilation continue Android avec export d'artefacts APK & AAB (`android-ci.yml`).
+* Pipeline de vérification de compilation Xcode iOS sur runner macOS (`ios-ci.yml`).
+
 ---
 
 ## [1.1.0] — 2026-09-20

@@ -1,0 +1,37 @@
+name: iOS CI Build & Verification
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "ios/**"
+      - ".github/workflows/ios-ci.yml"
+    tags:
+      - "v*"
+  pull_request:
+    paths:
+      - "ios/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Verify iOS Scheme
+    runs-on: macos-14
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Select Xcode Version
+        run: |
+          sudo xcode-select -s /Applications/Xcode_15.4.app || sudo xcode-select -s /Applications/Xcode.app
+          xcodebuild -version
+
+      - name: Build iOS Simulator Target
+        run: |
+          xcodebuild -project ios/MonGuide72h.xcodeproj \
+                     -scheme MonGuide72h \
+                     -destination "generic/platform=iOS Simulator" \
+                     CODE_SIGN_IDENTITY="" \
+                     CODE_SIGNING_REQUIRED=NO \
+                     CODE_SIGNING_ALLOWED=NO \
+                     clean build

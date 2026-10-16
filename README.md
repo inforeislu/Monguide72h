@@ -15,6 +15,7 @@
   <img src="https://img.shields.io/badge/iOS-SwiftUI_%2B_WatchOS_%2B_Widgets-007AFF?style=flat-square&logo=apple" alt="iOS" />
   <img src="https://img.shields.io/badge/Android-Jetpack_Compose-3DDC84?style=flat-square&logo=android" alt="Android" />
   <img src="https://img.shields.io/badge/Web-PWA_Offline_v2-EA141D?style=flat-square" alt="PWA" />
+  <img src="https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=flat-square&logo=githubactions" alt="CI/CD" />
   <img src="https://img.shields.io/badge/Vie_Priv%C3%A9e-Z%C3%A9ro_Tracking-informational?style=flat-square" alt="Privacy First" />
 </p>
 
@@ -142,6 +143,12 @@ cd android
 ./gradlew assembleDebug
 ```
 L'APK prêt à tester sera généré dans `android/app/build/outputs/apk/debug/app-debug.apk`.
+
+### 4. Automatisation CI/CD (GitHub Actions)
+Le projet dispose de 3 workflows automatisés :
+* **`deploy-pwa.yml`** : Déploiement automatique du Web PWA sur **GitHub Pages** (HTTPS) à chaque push sur `main`.
+* **`android-ci.yml`** : Compilation continue de l'APK Debug et du Bundle Release (`app-release.aab`) avec téléversement automatique des artefacts.
+* **`ios-ci.yml`** : Validation continue de la compilation du projet Xcode sur runner macOS.
 
 ---
 
