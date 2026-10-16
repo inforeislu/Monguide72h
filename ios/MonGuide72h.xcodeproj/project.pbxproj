@@ -7,117 +7,123 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CDA18867BA084965BFBA2EA8 /* MonGuide72hApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9D6A813A564C69AC7AF5AB /* MonGuide72hApp.swift */; };
-		D24789294ADB4363A366CF94 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C3C992EA9413C979E8C13 /* Language.swift */; };
-		E4C849CD172C416CBFE29460 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 527DFD6F5BAE47D1A6E2C4F8 /* Country.swift */; };
-		2C13425DBEA34E8CB15D19A6 /* HouseholdMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B994FD84534BCFAA2D9096 /* HouseholdMember.swift */; };
-		7B7D8D5A201D40D7A6804133 /* EmergencyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6E5FC5AA374B11B5D26365 /* EmergencyPlan.swift */; };
-		08F6FE5A48254EEEB21FDE92 /* SirenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9BE33C630D4BD9A36A8EBE /* SirenType.swift */; };
-		C408813D03E74F39BE7751B2 /* KitCalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D03D14FC6AA4B51AC9A3526 /* KitCalculatorViewModel.swift */; };
-		8FAF4C4F307D4AB48DDFAE49 /* EmergencyPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8192A964B64288BE59A075 /* EmergencyPlanViewModel.swift */; };
-		62645B80CD904D35AEA9542B /* SirenAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9786FDA68B284AED9EDD54F6 /* SirenAudioPlayer.swift */; };
-		E3F04689760B411AB29D970C /* TorchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1713AEE13A46BD83ACDB52 /* TorchManager.swift */; };
-		FCF0B9E2854F48A18CD61644 /* PDFExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14573AE01340421D8F33F185 /* PDFExportManager.swift */; };
-		07AC9DB61DA64CF4BF0D2876 /* ExpiryNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2B3DD080694B77A0E07ABC /* ExpiryNotificationManager.swift */; };
-		C207FDA5AF9B492B9F670244 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD757E8002C429B94E70462 /* MainTabView.swift */; };
-		9A9491BD51334C628DC2A0C4 /* KitCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BC373B14E244648DF6EF3B /* KitCalculatorView.swift */; };
-		BD76F058DC214568A7CAEAC0 /* EvacuationBagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73DF9AC8B4948E0AA37727B /* EvacuationBagView.swift */; };
-		9B3835FD02A04F9AA0701BCF /* EmergencyPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0514CE1443044F49A96B3537 /* EmergencyPlanView.swift */; };
-		59B0F519CC98439CBB89FB43 /* SirensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34EF197B4F6445D9C127DF5 /* SirensView.swift */; };
-		A0D91F920B014C16A982E9AB /* RisksGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2622C40BEFC7402B8B2836EC /* RisksGuideView.swift */; };
-		6C7C76AA1D4146BD8D96279A /* ScenarioTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8427DC0FF2D140569E00E5F0 /* ScenarioTimelineView.swift */; };
-		2D7DE8032042497E8F484B0E /* OfflineGuideRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C66B5AD74D44B60B19DD5A0 /* OfflineGuideRepository.swift */; };
-		29D7B6116086494B89E34BCE /* OfflineGuideReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D89786C19F44CA84FBCE0B /* OfflineGuideReaderView.swift */; };
-		33D8E0FB659843FD91638CA3 /* GuidesHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F469A274AD1C419EAE9B94E7 /* GuidesHubView.swift */; };
-		279AADBE27514202BF1B27DC /* ActPlansGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A92190F8D045A7A047EC11 /* ActPlansGuideView.swift */; };
-		E80A8B93E26D419BB3131AAD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010B32C81FC4C8B86AA44D4 /* AboutView.swift */; };
-		8F839BFF572C46EDB1B489BC /* ExpiryTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DCF1C033C649B893C04522 /* ExpiryTrackerView.swift */; };
-		FD3CE46765014679AF383E47 /* CrisisTriageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FC10DC69AD474FBDF20FA6 /* CrisisTriageView.swift */; };
-		BC2F84B4771641118C6A53FB /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19304CACD574597906C14CD /* SplashScreenView.swift */; };
-		D54FDAF85321400ABA1927CC /* EmergencySOSAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886F8676A9114BAAB934EDB4 /* EmergencySOSAlarmView.swift */; };
-		02A070C2645348A8A51D149E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FF4B174E0444E795A6E3ED /* LocationManager.swift */; };
-		B2A3ED0147A040CD8EEA65EF /* SOSAlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915281BD54CF4A6889ED56B9 /* SOSAlarmManager.swift */; };
-		27735CC78E3A419D8FDFE136 /* VoiceGuideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B1F55CCE85437E91F5C13C /* VoiceGuideManager.swift */; };
-		F31036E1AC0A461BB845F9CA /* VoiceGuideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F75E9CF87541FEAD313049 /* VoiceGuideBar.swift */; };
-		6D4F090FE087402DB9131635 /* FamilyDrillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07566AE660AC4F3FA2970891 /* FamilyDrillViewModel.swift */; };
-		2EE4704D61694265A5160F4D /* FamilyDrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47F1E043C72407884D1E689 /* FamilyDrillView.swift */; };
-		39B3A6B4ED444DD481601170 /* TacticalModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253A0469C831426BB154511E /* TacticalModeManager.swift */; };
-		D896D0C347C6455A87FA15DD /* TacticalNightVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CF0924F4904961A065AF15 /* TacticalNightVisionView.swift */; };
-		97B4E6701774457090B30A68 /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EB21308D3491195BA97D4 /* WidgetDataManager.swift */; };
-		244DB8B2142747939FD0B254 /* WidgetComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DB667FDAC8447588BAF9C9 /* WidgetComponents.swift */; };
-		59B84D7AE15348F7AA6842B9 /* WidgetShowcaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3A073F00E48FBB16D2504 /* WidgetShowcaseView.swift */; };
-		19AB659EC4034FA6BE0BC687 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB854F31CAEC4CFCAF0ADC97 /* LocalizationManager.swift */; };
-		8CC8B9B4C13842C7B2D0187F /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E97298088B340278CF934F4 /* WatchConnectivityManager.swift */; };
-		E8C328D1694F457082927D95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3674507E5B784AF491D70D24 /* Assets.xcassets */; };
-		FDCE093E2D0642C1A8B3ADAC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = D6769C86F85F4B0494831CA2 /* PrivacyInfo.xcprivacy */; };
-		EA4A0F3411A94406AC950AF5 /* EmergencyPOI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F8319C25144B119F15CD4F /* EmergencyPOI.swift */; };
-		39DFE31FEBDB49D1BAC33343 /* OfflinePOIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAF31FE8504B20A0E4C15A /* OfflinePOIRepository.swift */; };
-		FD8DE8A4D44A40CCB56948B5 /* OfflineEmergencyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFD282D5C48409C846E682C /* OfflineEmergencyMapView.swift */; };
-		D0577D30A3294A808000359A /* PlanSharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6128DA33D9BF4688AB7377C6 /* PlanSharingManager.swift */; };
-		B8B595602D1047C8A91FDED5 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59386A1E4FBF4CFF8D609AE7 /* QRCodeScannerView.swift */; };
-		B7AD6EBDF13041668365C664 /* FamilyPlanSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9F5DB933A649B8A970BC40 /* FamilyPlanSharingView.swift */; };
-		36F7CC9F00B94E7EBB71DCD3 /* EmergencyRadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD48EFD807446B0AD4B0B3E /* EmergencyRadioStation.swift */; };
-		4F0262A79B5F4DA9A6B24D6B /* EmergencyRadioGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C18231B507746B2A992877B /* EmergencyRadioGuideView.swift */; };
-		151FE5CD528B4F2B98DA551A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2267F04D948109C747897 /* OnboardingView.swift */; };
+		DE30B8B6B652442C87A8B2E9 /* MonGuide72hApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890A3124D784428A9E41E25B /* MonGuide72hApp.swift */; };
+		E6A0368F13124748BADE9BA5 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1941B5F462184EDA9A699557 /* Language.swift */; };
+		8B212CBCB8394646B4F635D3 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B154B161A46A19FC3D563 /* Country.swift */; };
+		526281A297904D9B87A74E63 /* HouseholdMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C183D2DB5049CEA44C88D7 /* HouseholdMember.swift */; };
+		AF8DF9711E534BE7BA46092A /* EmergencyPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7663A9E4D94D46893F237C /* EmergencyPlan.swift */; };
+		D40FB4B7BA6948CD9C737971 /* SirenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046729BD4F0451EB59E92D2 /* SirenType.swift */; };
+		7A55F31753A94645A825091D /* KitCalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8307C8BC1B0A4FE1BDD70C7A /* KitCalculatorViewModel.swift */; };
+		D99E1D40590841FD932FDECA /* EmergencyPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174284C609F14045ABDDA5ED /* EmergencyPlanViewModel.swift */; };
+		ABEE68088DCD488E96E386DE /* SirenAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08169B64751D4BAA8344557D /* SirenAudioPlayer.swift */; };
+		D8A7DFE8242A4F4380FC66ED /* TorchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB02287B3374A71AB5E7DCC /* TorchManager.swift */; };
+		A334A0FBA4CA4C3182621E5E /* PDFExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF2023B173644E5A1159E86 /* PDFExportManager.swift */; };
+		6992D4BCB67041E1843E3B63 /* ExpiryNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893927681B2845ABAD719DFF /* ExpiryNotificationManager.swift */; };
+		664191D502F24BCC94AEDE81 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E95B92C3C6451B84CC89C1 /* MainTabView.swift */; };
+		49BF9D3A4BB645679DCDE008 /* KitCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F28EC9455941D98B04A5A3 /* KitCalculatorView.swift */; };
+		BD9E3DE8255A45E7B63B689F /* EvacuationBagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19154DE98A14B8F8B0B0F14 /* EvacuationBagView.swift */; };
+		56B33DE82E324D5F8C1F2F56 /* EmergencyPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B253AF8D4A4A149DD3B8F7 /* EmergencyPlanView.swift */; };
+		DA88E5E56970441B99E25912 /* SirensView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D70990D14B4FB6BA726E74 /* SirensView.swift */; };
+		D0640C74BD2849728D102176 /* RisksGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4245A230FB74832AF681ED7 /* RisksGuideView.swift */; };
+		A6EC49C146FB4DE4A3C21A81 /* ScenarioTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BEB8FF9EF1408AA8AE11F0 /* ScenarioTimelineView.swift */; };
+		F0AA2AF1598E450ABDBAB3C7 /* OfflineGuideRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C1E090A8C411FB0744C09 /* OfflineGuideRepository.swift */; };
+		5606EBB3D1C64F5F9A9DD335 /* OfflineGuideReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A6BFACCA7A452FA763C2AE /* OfflineGuideReaderView.swift */; };
+		C7A75F098FD84003A5859524 /* GuidesHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC4ABABE46D48BD88C580D7 /* GuidesHubView.swift */; };
+		B02D82385A6845E8ABA1E387 /* ActPlansGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D838139B09545EA9B63386F /* ActPlansGuideView.swift */; };
+		380F0272BB0B45CBB9FFBF6F /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D7DF509F2340ACA83FAC4F /* AboutView.swift */; };
+		83ABDAC398D744FA9C11A8B3 /* ExpiryTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731209CB64242F5BF592571 /* ExpiryTrackerView.swift */; };
+		586E6D6785634B8AA156336D /* CrisisTriageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA48EDDC96DC4334A6A51568 /* CrisisTriageView.swift */; };
+		51EBD325B1A747BEABD9AD2E /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD553FA46C9543AA854C48BF /* SplashScreenView.swift */; };
+		94D7E10158AC4BDE8B93F893 /* EmergencySOSAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311E70668A6147F7803696FC /* EmergencySOSAlarmView.swift */; };
+		EA5EA84DD56B46F793BC08AE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E85F70BDC349468E5FACCC /* LocationManager.swift */; };
+		853DC2DF66F24338AF4AD0EC /* SOSAlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16767D17B574927A3224EB6 /* SOSAlarmManager.swift */; };
+		8BF846FFB29649998BC3BE78 /* VoiceGuideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6B6FF5839E4E7A915542A4 /* VoiceGuideManager.swift */; };
+		D444E7B55D4D4E43850C161C /* VoiceGuideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69BD9CBBD08E425E9052318C /* VoiceGuideBar.swift */; };
+		89A859419BDC451E983E62CF /* FamilyDrillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3309656EEEB044509D89EDF7 /* FamilyDrillViewModel.swift */; };
+		FA649C46E23D4F0CA6EDA4CB /* FamilyDrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9711924255A6455EAAB75FA0 /* FamilyDrillView.swift */; };
+		F5D1DC54194E482D9688DFAE /* TacticalModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38F05F2450F4BFA953F0FD7 /* TacticalModeManager.swift */; };
+		3729C64B9A6F42C38538C3F9 /* TacticalNightVisionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B043261B964253AF30B7D9 /* TacticalNightVisionView.swift */; };
+		D5A20BBE050A4E8C8F5600AF /* WidgetDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A52D9DC8CEA48FBBD496FE5 /* WidgetDataManager.swift */; };
+		DFFAC68FAAF8410D9287E196 /* WidgetComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004EA3DA4AF45339CE0FE93 /* WidgetComponents.swift */; };
+		0D608C7307CA497AA495AEF6 /* WidgetShowcaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B18AC927D642BA9E8242EF /* WidgetShowcaseView.swift */; };
+		D5085626408A4E2589049191 /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E829C75CEF47E99C3F8A2B /* LocalizationManager.swift */; };
+		9EE079A7C24E4266B4DB4262 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E60BFCC95E94FCC8542334A /* WatchConnectivityManager.swift */; };
+		2400C99FCBBF424C852DCDF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 784862A0AD364C208B8C5780 /* Assets.xcassets */; };
+		AA6625E91285419B8D9E63F5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AE07B447DCC848F6816D7172 /* PrivacyInfo.xcprivacy */; };
+		598D6D264F974DBDB0B2AF1E /* EmergencyPOI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C9EF7BC14545FEA36A9F79 /* EmergencyPOI.swift */; };
+		5071E3DC42C24027B7AEADC6 /* OfflinePOIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A9C973B46D44F2A945CBD6 /* OfflinePOIRepository.swift */; };
+		F1F1F8EE82004B479378A290 /* OfflineEmergencyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CA1F6CA62D483CA5283A5E /* OfflineEmergencyMapView.swift */; };
+		1ED711D559244776B407BDC3 /* PlanSharingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FF9682C49E4D2A8244287D /* PlanSharingManager.swift */; };
+		4BA222FA34064819BD24E335 /* QRCodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC5FA19BFF54722A9A1ADCC /* QRCodeScannerView.swift */; };
+		73DDB7BDE17E4414B2F3B336 /* FamilyPlanSharingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C014078E08F4829B643B57C /* FamilyPlanSharingView.swift */; };
+		DBF170D3F2A743C4B09DD3BF /* EmergencyRadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3501C20D4F984689BDFB4212 /* EmergencyRadioStation.swift */; };
+		DCADC3D0C0F0401288A70B95 /* EmergencyRadioGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E6187BD2FB48C395E4F2F7 /* EmergencyRadioGuideView.swift */; };
+		21E43D6E268B460986D0C06D /* MedicalICECard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03458B66DA94EF9A1F8F6B2 /* MedicalICECard.swift */; };
+		411593B0A7134B6A818C8AA9 /* MedicalICECardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061DEC4E935242E3BC9D2F46 /* MedicalICECardManager.swift */; };
+		024DF49E46C84EDD80FE7F89 /* MedicalICEWallpaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703C7B5AD59A4542823F6590 /* MedicalICEWallpaperView.swift */; };
+		ABD2234238C74DA3AD4709D3 /* RescueSignalingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7ABE008875453EBE5D0903 /* RescueSignalingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8C9D6A813A564C69AC7AF5AB /* MonGuide72hApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/MonGuide72hApp.swift"; sourceTree = "<group>"; };
-		729C3C992EA9413C979E8C13 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/Language.swift"; sourceTree = "<group>"; };
-		527DFD6F5BAE47D1A6E2C4F8 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/Country.swift"; sourceTree = "<group>"; };
-		81B994FD84534BCFAA2D9096 /* HouseholdMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/HouseholdMember.swift"; sourceTree = "<group>"; };
-		FD6E5FC5AA374B11B5D26365 /* EmergencyPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/EmergencyPlan.swift"; sourceTree = "<group>"; };
-		4C9BE33C630D4BD9A36A8EBE /* SirenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/SirenType.swift"; sourceTree = "<group>"; };
-		2D03D14FC6AA4B51AC9A3526 /* KitCalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/KitCalculatorViewModel.swift"; sourceTree = "<group>"; };
-		7B8192A964B64288BE59A075 /* EmergencyPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/EmergencyPlanViewModel.swift"; sourceTree = "<group>"; };
-		9786FDA68B284AED9EDD54F6 /* SirenAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/SirenAudioPlayer.swift"; sourceTree = "<group>"; };
-		8E1713AEE13A46BD83ACDB52 /* TorchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/TorchManager.swift"; sourceTree = "<group>"; };
-		14573AE01340421D8F33F185 /* PDFExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/PDFExportManager.swift"; sourceTree = "<group>"; };
-		1E2B3DD080694B77A0E07ABC /* ExpiryNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/ExpiryNotificationManager.swift"; sourceTree = "<group>"; };
-		7AD757E8002C429B94E70462 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/MainTabView.swift"; sourceTree = "<group>"; };
-		74BC373B14E244648DF6EF3B /* KitCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/KitCalculatorView.swift"; sourceTree = "<group>"; };
-		F73DF9AC8B4948E0AA37727B /* EvacuationBagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/EvacuationBagView.swift"; sourceTree = "<group>"; };
-		0514CE1443044F49A96B3537 /* EmergencyPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/EmergencyPlanView.swift"; sourceTree = "<group>"; };
-		C34EF197B4F6445D9C127DF5 /* SirensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/SirensView.swift"; sourceTree = "<group>"; };
-		2622C40BEFC7402B8B2836EC /* RisksGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/RisksGuideView.swift"; sourceTree = "<group>"; };
-		8427DC0FF2D140569E00E5F0 /* ScenarioTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/ScenarioTimelineView.swift"; sourceTree = "<group>"; };
-		1C66B5AD74D44B60B19DD5A0 /* OfflineGuideRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/OfflineGuideRepository.swift"; sourceTree = "<group>"; };
-		D3D89786C19F44CA84FBCE0B /* OfflineGuideReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/OfflineGuideReaderView.swift"; sourceTree = "<group>"; };
-		F469A274AD1C419EAE9B94E7 /* GuidesHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/GuidesHubView.swift"; sourceTree = "<group>"; };
-		23A92190F8D045A7A047EC11 /* ActPlansGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/ActPlansGuideView.swift"; sourceTree = "<group>"; };
-		0010B32C81FC4C8B86AA44D4 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/AboutView.swift"; sourceTree = "<group>"; };
-		59DCF1C033C649B893C04522 /* ExpiryTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/ExpiryTrackerView.swift"; sourceTree = "<group>"; };
-		03FC10DC69AD474FBDF20FA6 /* CrisisTriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/CrisisTriageView.swift"; sourceTree = "<group>"; };
-		E19304CACD574597906C14CD /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/SplashScreenView.swift"; sourceTree = "<group>"; };
-		886F8676A9114BAAB934EDB4 /* EmergencySOSAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/EmergencySOSAlarmView.swift"; sourceTree = "<group>"; };
-		37FF4B174E0444E795A6E3ED /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/LocationManager.swift"; sourceTree = "<group>"; };
-		915281BD54CF4A6889ED56B9 /* SOSAlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/SOSAlarmManager.swift"; sourceTree = "<group>"; };
-		97B1F55CCE85437E91F5C13C /* VoiceGuideManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/VoiceGuideManager.swift"; sourceTree = "<group>"; };
-		66F75E9CF87541FEAD313049 /* VoiceGuideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/VoiceGuideBar.swift"; sourceTree = "<group>"; };
-		07566AE660AC4F3FA2970891 /* FamilyDrillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/FamilyDrillViewModel.swift"; sourceTree = "<group>"; };
-		A47F1E043C72407884D1E689 /* FamilyDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/FamilyDrillView.swift"; sourceTree = "<group>"; };
-		253A0469C831426BB154511E /* TacticalModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/TacticalModeManager.swift"; sourceTree = "<group>"; };
-		B9CF0924F4904961A065AF15 /* TacticalNightVisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/TacticalNightVisionView.swift"; sourceTree = "<group>"; };
-		C29EB21308D3491195BA97D4 /* WidgetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/WidgetDataManager.swift"; sourceTree = "<group>"; };
-		10DB667FDAC8447588BAF9C9 /* WidgetComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/WidgetComponents.swift"; sourceTree = "<group>"; };
-		EBF3A073F00E48FBB16D2504 /* WidgetShowcaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/WidgetShowcaseView.swift"; sourceTree = "<group>"; };
-		CB854F31CAEC4CFCAF0ADC97 /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Localization/LocalizationManager.swift"; sourceTree = "<group>"; };
-		9E97298088B340278CF934F4 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/WatchConnectivityManager.swift"; sourceTree = "<group>"; };
-		3674507E5B784AF491D70D24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "MonGuide72h/Assets.xcassets"; sourceTree = "<group>"; };
-		D6769C86F85F4B0494831CA2 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MonGuide72h/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
-		11F8319C25144B119F15CD4F /* EmergencyPOI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/EmergencyPOI.swift"; sourceTree = "<group>"; };
-		26BAF31FE8504B20A0E4C15A /* OfflinePOIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/OfflinePOIRepository.swift"; sourceTree = "<group>"; };
-		FDFD282D5C48409C846E682C /* OfflineEmergencyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/OfflineEmergencyMapView.swift"; sourceTree = "<group>"; };
-		6128DA33D9BF4688AB7377C6 /* PlanSharingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/PlanSharingManager.swift"; sourceTree = "<group>"; };
-		59386A1E4FBF4CFF8D609AE7 /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/QRCodeScannerView.swift"; sourceTree = "<group>"; };
-		AC9F5DB933A649B8A970BC40 /* FamilyPlanSharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/FamilyPlanSharingView.swift"; sourceTree = "<group>"; };
-		DDD48EFD807446B0AD4B0B3E /* EmergencyRadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/EmergencyRadioStation.swift"; sourceTree = "<group>"; };
-		9C18231B507746B2A992877B /* EmergencyRadioGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/EmergencyRadioGuideView.swift"; sourceTree = "<group>"; };
-		6BB2267F04D948109C747897 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/OnboardingView.swift"; sourceTree = "<group>"; };
+		890A3124D784428A9E41E25B /* MonGuide72hApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/MonGuide72hApp.swift"; sourceTree = "<group>"; };
+		1941B5F462184EDA9A699557 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/Language.swift"; sourceTree = "<group>"; };
+		174B154B161A46A19FC3D563 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/Country.swift"; sourceTree = "<group>"; };
+		97C183D2DB5049CEA44C88D7 /* HouseholdMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/HouseholdMember.swift"; sourceTree = "<group>"; };
+		6D7663A9E4D94D46893F237C /* EmergencyPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/EmergencyPlan.swift"; sourceTree = "<group>"; };
+		7046729BD4F0451EB59E92D2 /* SirenType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/SirenType.swift"; sourceTree = "<group>"; };
+		8307C8BC1B0A4FE1BDD70C7A /* KitCalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/KitCalculatorViewModel.swift"; sourceTree = "<group>"; };
+		174284C609F14045ABDDA5ED /* EmergencyPlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/EmergencyPlanViewModel.swift"; sourceTree = "<group>"; };
+		08169B64751D4BAA8344557D /* SirenAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/SirenAudioPlayer.swift"; sourceTree = "<group>"; };
+		EFB02287B3374A71AB5E7DCC /* TorchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/TorchManager.swift"; sourceTree = "<group>"; };
+		3FF2023B173644E5A1159E86 /* PDFExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/PDFExportManager.swift"; sourceTree = "<group>"; };
+		893927681B2845ABAD719DFF /* ExpiryNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/ExpiryNotificationManager.swift"; sourceTree = "<group>"; };
+		31E95B92C3C6451B84CC89C1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/MainTabView.swift"; sourceTree = "<group>"; };
+		69F28EC9455941D98B04A5A3 /* KitCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/KitCalculatorView.swift"; sourceTree = "<group>"; };
+		D19154DE98A14B8F8B0B0F14 /* EvacuationBagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/EvacuationBagView.swift"; sourceTree = "<group>"; };
+		44B253AF8D4A4A149DD3B8F7 /* EmergencyPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/EmergencyPlanView.swift"; sourceTree = "<group>"; };
+		E0D70990D14B4FB6BA726E74 /* SirensView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/SirensView.swift"; sourceTree = "<group>"; };
+		A4245A230FB74832AF681ED7 /* RisksGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/RisksGuideView.swift"; sourceTree = "<group>"; };
+		D0BEB8FF9EF1408AA8AE11F0 /* ScenarioTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/ScenarioTimelineView.swift"; sourceTree = "<group>"; };
+		626C1E090A8C411FB0744C09 /* OfflineGuideRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/OfflineGuideRepository.swift"; sourceTree = "<group>"; };
+		A4A6BFACCA7A452FA763C2AE /* OfflineGuideReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/OfflineGuideReaderView.swift"; sourceTree = "<group>"; };
+		7FC4ABABE46D48BD88C580D7 /* GuidesHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/GuidesHubView.swift"; sourceTree = "<group>"; };
+		7D838139B09545EA9B63386F /* ActPlansGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/ActPlansGuideView.swift"; sourceTree = "<group>"; };
+		B0D7DF509F2340ACA83FAC4F /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/AboutView.swift"; sourceTree = "<group>"; };
+		F731209CB64242F5BF592571 /* ExpiryTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/ExpiryTrackerView.swift"; sourceTree = "<group>"; };
+		DA48EDDC96DC4334A6A51568 /* CrisisTriageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/CrisisTriageView.swift"; sourceTree = "<group>"; };
+		CD553FA46C9543AA854C48BF /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/SplashScreenView.swift"; sourceTree = "<group>"; };
+		311E70668A6147F7803696FC /* EmergencySOSAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/EmergencySOSAlarmView.swift"; sourceTree = "<group>"; };
+		91E85F70BDC349468E5FACCC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/LocationManager.swift"; sourceTree = "<group>"; };
+		B16767D17B574927A3224EB6 /* SOSAlarmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/SOSAlarmManager.swift"; sourceTree = "<group>"; };
+		FE6B6FF5839E4E7A915542A4 /* VoiceGuideManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/VoiceGuideManager.swift"; sourceTree = "<group>"; };
+		69BD9CBBD08E425E9052318C /* VoiceGuideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/VoiceGuideBar.swift"; sourceTree = "<group>"; };
+		3309656EEEB044509D89EDF7 /* FamilyDrillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/FamilyDrillViewModel.swift"; sourceTree = "<group>"; };
+		9711924255A6455EAAB75FA0 /* FamilyDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/FamilyDrillView.swift"; sourceTree = "<group>"; };
+		F38F05F2450F4BFA953F0FD7 /* TacticalModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/TacticalModeManager.swift"; sourceTree = "<group>"; };
+		40B043261B964253AF30B7D9 /* TacticalNightVisionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/TacticalNightVisionView.swift"; sourceTree = "<group>"; };
+		5A52D9DC8CEA48FBBD496FE5 /* WidgetDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/WidgetDataManager.swift"; sourceTree = "<group>"; };
+		2004EA3DA4AF45339CE0FE93 /* WidgetComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/WidgetComponents.swift"; sourceTree = "<group>"; };
+		94B18AC927D642BA9E8242EF /* WidgetShowcaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/WidgetShowcaseView.swift"; sourceTree = "<group>"; };
+		F8E829C75CEF47E99C3F8A2B /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Localization/LocalizationManager.swift"; sourceTree = "<group>"; };
+		8E60BFCC95E94FCC8542334A /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/WatchConnectivityManager.swift"; sourceTree = "<group>"; };
+		784862A0AD364C208B8C5780 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "MonGuide72h/Assets.xcassets"; sourceTree = "<group>"; };
+		AE07B447DCC848F6816D7172 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "MonGuide72h/PrivacyInfo.xcprivacy"; sourceTree = "<group>"; };
+		F8C9EF7BC14545FEA36A9F79 /* EmergencyPOI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/EmergencyPOI.swift"; sourceTree = "<group>"; };
+		16A9C973B46D44F2A945CBD6 /* OfflinePOIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/OfflinePOIRepository.swift"; sourceTree = "<group>"; };
+		20CA1F6CA62D483CA5283A5E /* OfflineEmergencyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/OfflineEmergencyMapView.swift"; sourceTree = "<group>"; };
+		72FF9682C49E4D2A8244287D /* PlanSharingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/PlanSharingManager.swift"; sourceTree = "<group>"; };
+		EBC5FA19BFF54722A9A1ADCC /* QRCodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/QRCodeScannerView.swift"; sourceTree = "<group>"; };
+		4C014078E08F4829B643B57C /* FamilyPlanSharingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/FamilyPlanSharingView.swift"; sourceTree = "<group>"; };
+		3501C20D4F984689BDFB4212 /* EmergencyRadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/EmergencyRadioStation.swift"; sourceTree = "<group>"; };
+		B2E6187BD2FB48C395E4F2F7 /* EmergencyRadioGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/EmergencyRadioGuideView.swift"; sourceTree = "<group>"; };
+		C03458B66DA94EF9A1F8F6B2 /* MedicalICECard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Models/MedicalICECard.swift"; sourceTree = "<group>"; };
+		061DEC4E935242E3BC9D2F46 /* MedicalICECardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/ViewModels/MedicalICECardManager.swift"; sourceTree = "<group>"; };
+		703C7B5AD59A4542823F6590 /* MedicalICEWallpaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/MedicalICEWallpaperView.swift"; sourceTree = "<group>"; };
+		CE7ABE008875453EBE5D0903 /* RescueSignalingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MonGuide72h/Views/RescueSignalingView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A7C4F6D38D1F492B916BF23A /* Frameworks */ = {
+		3EC2F4B538AA46729219DA64 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,61 +133,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5AED76B15BE6449B978D61FC = {
+		15CC05D1C2414BCA90C8A34C = {
 			isa = PBXGroup;
 			children = (
-				8C9D6A813A564C69AC7AF5AB /* MonGuide72hApp.swift */,
-				729C3C992EA9413C979E8C13 /* Language.swift */,
-				527DFD6F5BAE47D1A6E2C4F8 /* Country.swift */,
-				81B994FD84534BCFAA2D9096 /* HouseholdMember.swift */,
-				FD6E5FC5AA374B11B5D26365 /* EmergencyPlan.swift */,
-				4C9BE33C630D4BD9A36A8EBE /* SirenType.swift */,
-				2D03D14FC6AA4B51AC9A3526 /* KitCalculatorViewModel.swift */,
-				7B8192A964B64288BE59A075 /* EmergencyPlanViewModel.swift */,
-				9786FDA68B284AED9EDD54F6 /* SirenAudioPlayer.swift */,
-				8E1713AEE13A46BD83ACDB52 /* TorchManager.swift */,
-				14573AE01340421D8F33F185 /* PDFExportManager.swift */,
-				1E2B3DD080694B77A0E07ABC /* ExpiryNotificationManager.swift */,
-				7AD757E8002C429B94E70462 /* MainTabView.swift */,
-				74BC373B14E244648DF6EF3B /* KitCalculatorView.swift */,
-				F73DF9AC8B4948E0AA37727B /* EvacuationBagView.swift */,
-				0514CE1443044F49A96B3537 /* EmergencyPlanView.swift */,
-				C34EF197B4F6445D9C127DF5 /* SirensView.swift */,
-				2622C40BEFC7402B8B2836EC /* RisksGuideView.swift */,
-				8427DC0FF2D140569E00E5F0 /* ScenarioTimelineView.swift */,
-				1C66B5AD74D44B60B19DD5A0 /* OfflineGuideRepository.swift */,
-				D3D89786C19F44CA84FBCE0B /* OfflineGuideReaderView.swift */,
-				F469A274AD1C419EAE9B94E7 /* GuidesHubView.swift */,
-				23A92190F8D045A7A047EC11 /* ActPlansGuideView.swift */,
-				0010B32C81FC4C8B86AA44D4 /* AboutView.swift */,
-				59DCF1C033C649B893C04522 /* ExpiryTrackerView.swift */,
-				03FC10DC69AD474FBDF20FA6 /* CrisisTriageView.swift */,
-				E19304CACD574597906C14CD /* SplashScreenView.swift */,
-				886F8676A9114BAAB934EDB4 /* EmergencySOSAlarmView.swift */,
-				37FF4B174E0444E795A6E3ED /* LocationManager.swift */,
-				915281BD54CF4A6889ED56B9 /* SOSAlarmManager.swift */,
-				97B1F55CCE85437E91F5C13C /* VoiceGuideManager.swift */,
-				66F75E9CF87541FEAD313049 /* VoiceGuideBar.swift */,
-				07566AE660AC4F3FA2970891 /* FamilyDrillViewModel.swift */,
-				A47F1E043C72407884D1E689 /* FamilyDrillView.swift */,
-				253A0469C831426BB154511E /* TacticalModeManager.swift */,
-				B9CF0924F4904961A065AF15 /* TacticalNightVisionView.swift */,
-				C29EB21308D3491195BA97D4 /* WidgetDataManager.swift */,
-				10DB667FDAC8447588BAF9C9 /* WidgetComponents.swift */,
-				EBF3A073F00E48FBB16D2504 /* WidgetShowcaseView.swift */,
-				CB854F31CAEC4CFCAF0ADC97 /* LocalizationManager.swift */,
-				9E97298088B340278CF934F4 /* WatchConnectivityManager.swift */,
-				3674507E5B784AF491D70D24 /* Assets.xcassets */,
-				D6769C86F85F4B0494831CA2 /* PrivacyInfo.xcprivacy */,
-				11F8319C25144B119F15CD4F /* EmergencyPOI.swift */,
-				26BAF31FE8504B20A0E4C15A /* OfflinePOIRepository.swift */,
-				FDFD282D5C48409C846E682C /* OfflineEmergencyMapView.swift */,
-				6128DA33D9BF4688AB7377C6 /* PlanSharingManager.swift */,
-				59386A1E4FBF4CFF8D609AE7 /* QRCodeScannerView.swift */,
-				AC9F5DB933A649B8A970BC40 /* FamilyPlanSharingView.swift */,
-				DDD48EFD807446B0AD4B0B3E /* EmergencyRadioStation.swift */,
-				9C18231B507746B2A992877B /* EmergencyRadioGuideView.swift */,
-				6BB2267F04D948109C747897 /* OnboardingView.swift */,
+				890A3124D784428A9E41E25B /* MonGuide72hApp.swift */,
+				1941B5F462184EDA9A699557 /* Language.swift */,
+				174B154B161A46A19FC3D563 /* Country.swift */,
+				97C183D2DB5049CEA44C88D7 /* HouseholdMember.swift */,
+				6D7663A9E4D94D46893F237C /* EmergencyPlan.swift */,
+				7046729BD4F0451EB59E92D2 /* SirenType.swift */,
+				8307C8BC1B0A4FE1BDD70C7A /* KitCalculatorViewModel.swift */,
+				174284C609F14045ABDDA5ED /* EmergencyPlanViewModel.swift */,
+				08169B64751D4BAA8344557D /* SirenAudioPlayer.swift */,
+				EFB02287B3374A71AB5E7DCC /* TorchManager.swift */,
+				3FF2023B173644E5A1159E86 /* PDFExportManager.swift */,
+				893927681B2845ABAD719DFF /* ExpiryNotificationManager.swift */,
+				31E95B92C3C6451B84CC89C1 /* MainTabView.swift */,
+				69F28EC9455941D98B04A5A3 /* KitCalculatorView.swift */,
+				D19154DE98A14B8F8B0B0F14 /* EvacuationBagView.swift */,
+				44B253AF8D4A4A149DD3B8F7 /* EmergencyPlanView.swift */,
+				E0D70990D14B4FB6BA726E74 /* SirensView.swift */,
+				A4245A230FB74832AF681ED7 /* RisksGuideView.swift */,
+				D0BEB8FF9EF1408AA8AE11F0 /* ScenarioTimelineView.swift */,
+				626C1E090A8C411FB0744C09 /* OfflineGuideRepository.swift */,
+				A4A6BFACCA7A452FA763C2AE /* OfflineGuideReaderView.swift */,
+				7FC4ABABE46D48BD88C580D7 /* GuidesHubView.swift */,
+				7D838139B09545EA9B63386F /* ActPlansGuideView.swift */,
+				B0D7DF509F2340ACA83FAC4F /* AboutView.swift */,
+				F731209CB64242F5BF592571 /* ExpiryTrackerView.swift */,
+				DA48EDDC96DC4334A6A51568 /* CrisisTriageView.swift */,
+				CD553FA46C9543AA854C48BF /* SplashScreenView.swift */,
+				311E70668A6147F7803696FC /* EmergencySOSAlarmView.swift */,
+				91E85F70BDC349468E5FACCC /* LocationManager.swift */,
+				B16767D17B574927A3224EB6 /* SOSAlarmManager.swift */,
+				FE6B6FF5839E4E7A915542A4 /* VoiceGuideManager.swift */,
+				69BD9CBBD08E425E9052318C /* VoiceGuideBar.swift */,
+				3309656EEEB044509D89EDF7 /* FamilyDrillViewModel.swift */,
+				9711924255A6455EAAB75FA0 /* FamilyDrillView.swift */,
+				F38F05F2450F4BFA953F0FD7 /* TacticalModeManager.swift */,
+				40B043261B964253AF30B7D9 /* TacticalNightVisionView.swift */,
+				5A52D9DC8CEA48FBBD496FE5 /* WidgetDataManager.swift */,
+				2004EA3DA4AF45339CE0FE93 /* WidgetComponents.swift */,
+				94B18AC927D642BA9E8242EF /* WidgetShowcaseView.swift */,
+				F8E829C75CEF47E99C3F8A2B /* LocalizationManager.swift */,
+				8E60BFCC95E94FCC8542334A /* WatchConnectivityManager.swift */,
+				784862A0AD364C208B8C5780 /* Assets.xcassets */,
+				AE07B447DCC848F6816D7172 /* PrivacyInfo.xcprivacy */,
+				F8C9EF7BC14545FEA36A9F79 /* EmergencyPOI.swift */,
+				16A9C973B46D44F2A945CBD6 /* OfflinePOIRepository.swift */,
+				20CA1F6CA62D483CA5283A5E /* OfflineEmergencyMapView.swift */,
+				72FF9682C49E4D2A8244287D /* PlanSharingManager.swift */,
+				EBC5FA19BFF54722A9A1ADCC /* QRCodeScannerView.swift */,
+				4C014078E08F4829B643B57C /* FamilyPlanSharingView.swift */,
+				3501C20D4F984689BDFB4212 /* EmergencyRadioStation.swift */,
+				B2E6187BD2FB48C395E4F2F7 /* EmergencyRadioGuideView.swift */,
+				C03458B66DA94EF9A1F8F6B2 /* MedicalICECard.swift */,
+				061DEC4E935242E3BC9D2F46 /* MedicalICECardManager.swift */,
+				703C7B5AD59A4542823F6590 /* MedicalICEWallpaperView.swift */,
+				CE7ABE008875453EBE5D0903 /* RescueSignalingView.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,11 +199,11 @@
 /* Begin PBXNativeTarget section */
 		3D029350980545118DC5D8FC /* MonGuide72h */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A483D25149824BEEBB406386 /* Build configuration list for PBXNativeTarget "MonGuide72h" */;
+			buildConfigurationList = 2D46D6A71F754A83B59A24D7 /* Build configuration list for PBXNativeTarget "MonGuide72h" */;
 			buildPhases = (
-				06C32055095D41F3BD01E396 /* Sources */,
-				A7C4F6D38D1F492B916BF23A /* Frameworks */,
-				0E660CEB45234D7896F59ECB /* Resources */,
+				3C3D23E822864FAB82A2832D /* Sources */,
+				3EC2F4B538AA46729219DA64 /* Frameworks */,
+				8C26A9CB0FA8479C881E19CE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -207,7 +216,7 @@
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6E3101D815344A56831FA561 /* Project object */ = {
+		B95813DE3AC047E18A415AAB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
@@ -220,7 +229,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6E7C207A76F34AB6800445BA /* Build configuration list for PBXProject "MonGuide72h" */;
+			buildConfigurationList = 429D011D73DE4C5AA2D28289 /* Build configuration list for PBXProject "MonGuide72h" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -228,8 +237,8 @@
 				en,
 				Base,
 			);
-			mainGroup = 5AED76B15BE6449B978D61FC;
-			productRefGroup = 5AED76B15BE6449B978D61FC;
+			mainGroup = 15CC05D1C2414BCA90C8A34C;
+			productRefGroup = 15CC05D1C2414BCA90C8A34C;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -239,79 +248,82 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0E660CEB45234D7896F59ECB /* Resources */ = {
+		8C26A9CB0FA8479C881E19CE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8C328D1694F457082927D95 /* Assets.xcassets in Resources */,
-				FDCE093E2D0642C1A8B3ADAC /* PrivacyInfo.xcprivacy in Resources */,
+				2400C99FCBBF424C852DCDF0 /* Assets.xcassets in Resources */,
+				AA6625E91285419B8D9E63F5 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		06C32055095D41F3BD01E396 /* Sources */ = {
+		3C3D23E822864FAB82A2832D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDA18867BA084965BFBA2EA8 /* MonGuide72hApp.swift in Sources */,
-				D24789294ADB4363A366CF94 /* Language.swift in Sources */,
-				E4C849CD172C416CBFE29460 /* Country.swift in Sources */,
-				2C13425DBEA34E8CB15D19A6 /* HouseholdMember.swift in Sources */,
-				7B7D8D5A201D40D7A6804133 /* EmergencyPlan.swift in Sources */,
-				08F6FE5A48254EEEB21FDE92 /* SirenType.swift in Sources */,
-				C408813D03E74F39BE7751B2 /* KitCalculatorViewModel.swift in Sources */,
-				8FAF4C4F307D4AB48DDFAE49 /* EmergencyPlanViewModel.swift in Sources */,
-				62645B80CD904D35AEA9542B /* SirenAudioPlayer.swift in Sources */,
-				E3F04689760B411AB29D970C /* TorchManager.swift in Sources */,
-				FCF0B9E2854F48A18CD61644 /* PDFExportManager.swift in Sources */,
-				07AC9DB61DA64CF4BF0D2876 /* ExpiryNotificationManager.swift in Sources */,
-				C207FDA5AF9B492B9F670244 /* MainTabView.swift in Sources */,
-				9A9491BD51334C628DC2A0C4 /* KitCalculatorView.swift in Sources */,
-				BD76F058DC214568A7CAEAC0 /* EvacuationBagView.swift in Sources */,
-				9B3835FD02A04F9AA0701BCF /* EmergencyPlanView.swift in Sources */,
-				59B0F519CC98439CBB89FB43 /* SirensView.swift in Sources */,
-				A0D91F920B014C16A982E9AB /* RisksGuideView.swift in Sources */,
-				6C7C76AA1D4146BD8D96279A /* ScenarioTimelineView.swift in Sources */,
-				2D7DE8032042497E8F484B0E /* OfflineGuideRepository.swift in Sources */,
-				29D7B6116086494B89E34BCE /* OfflineGuideReaderView.swift in Sources */,
-				33D8E0FB659843FD91638CA3 /* GuidesHubView.swift in Sources */,
-				279AADBE27514202BF1B27DC /* ActPlansGuideView.swift in Sources */,
-				E80A8B93E26D419BB3131AAD /* AboutView.swift in Sources */,
-				8F839BFF572C46EDB1B489BC /* ExpiryTrackerView.swift in Sources */,
-				FD3CE46765014679AF383E47 /* CrisisTriageView.swift in Sources */,
-				BC2F84B4771641118C6A53FB /* SplashScreenView.swift in Sources */,
-				D54FDAF85321400ABA1927CC /* EmergencySOSAlarmView.swift in Sources */,
-				02A070C2645348A8A51D149E /* LocationManager.swift in Sources */,
-				B2A3ED0147A040CD8EEA65EF /* SOSAlarmManager.swift in Sources */,
-				27735CC78E3A419D8FDFE136 /* VoiceGuideManager.swift in Sources */,
-				F31036E1AC0A461BB845F9CA /* VoiceGuideBar.swift in Sources */,
-				6D4F090FE087402DB9131635 /* FamilyDrillViewModel.swift in Sources */,
-				2EE4704D61694265A5160F4D /* FamilyDrillView.swift in Sources */,
-				39B3A6B4ED444DD481601170 /* TacticalModeManager.swift in Sources */,
-				D896D0C347C6455A87FA15DD /* TacticalNightVisionView.swift in Sources */,
-				97B4E6701774457090B30A68 /* WidgetDataManager.swift in Sources */,
-				244DB8B2142747939FD0B254 /* WidgetComponents.swift in Sources */,
-				59B84D7AE15348F7AA6842B9 /* WidgetShowcaseView.swift in Sources */,
-				19AB659EC4034FA6BE0BC687 /* LocalizationManager.swift in Sources */,
-				8CC8B9B4C13842C7B2D0187F /* WatchConnectivityManager.swift in Sources */,
-				EA4A0F3411A94406AC950AF5 /* EmergencyPOI.swift in Sources */,
-				39DFE31FEBDB49D1BAC33343 /* OfflinePOIRepository.swift in Sources */,
-				FD8DE8A4D44A40CCB56948B5 /* OfflineEmergencyMapView.swift in Sources */,
-				D0577D30A3294A808000359A /* PlanSharingManager.swift in Sources */,
-				B8B595602D1047C8A91FDED5 /* QRCodeScannerView.swift in Sources */,
-				B7AD6EBDF13041668365C664 /* FamilyPlanSharingView.swift in Sources */,
-				36F7CC9F00B94E7EBB71DCD3 /* EmergencyRadioStation.swift in Sources */,
-				4F0262A79B5F4DA9A6B24D6B /* EmergencyRadioGuideView.swift in Sources */,
-				151FE5CD528B4F2B98DA551A /* OnboardingView.swift in Sources */,
+				DE30B8B6B652442C87A8B2E9 /* MonGuide72hApp.swift in Sources */,
+				E6A0368F13124748BADE9BA5 /* Language.swift in Sources */,
+				8B212CBCB8394646B4F635D3 /* Country.swift in Sources */,
+				526281A297904D9B87A74E63 /* HouseholdMember.swift in Sources */,
+				AF8DF9711E534BE7BA46092A /* EmergencyPlan.swift in Sources */,
+				D40FB4B7BA6948CD9C737971 /* SirenType.swift in Sources */,
+				7A55F31753A94645A825091D /* KitCalculatorViewModel.swift in Sources */,
+				D99E1D40590841FD932FDECA /* EmergencyPlanViewModel.swift in Sources */,
+				ABEE68088DCD488E96E386DE /* SirenAudioPlayer.swift in Sources */,
+				D8A7DFE8242A4F4380FC66ED /* TorchManager.swift in Sources */,
+				A334A0FBA4CA4C3182621E5E /* PDFExportManager.swift in Sources */,
+				6992D4BCB67041E1843E3B63 /* ExpiryNotificationManager.swift in Sources */,
+				664191D502F24BCC94AEDE81 /* MainTabView.swift in Sources */,
+				49BF9D3A4BB645679DCDE008 /* KitCalculatorView.swift in Sources */,
+				BD9E3DE8255A45E7B63B689F /* EvacuationBagView.swift in Sources */,
+				56B33DE82E324D5F8C1F2F56 /* EmergencyPlanView.swift in Sources */,
+				DA88E5E56970441B99E25912 /* SirensView.swift in Sources */,
+				D0640C74BD2849728D102176 /* RisksGuideView.swift in Sources */,
+				A6EC49C146FB4DE4A3C21A81 /* ScenarioTimelineView.swift in Sources */,
+				F0AA2AF1598E450ABDBAB3C7 /* OfflineGuideRepository.swift in Sources */,
+				5606EBB3D1C64F5F9A9DD335 /* OfflineGuideReaderView.swift in Sources */,
+				C7A75F098FD84003A5859524 /* GuidesHubView.swift in Sources */,
+				B02D82385A6845E8ABA1E387 /* ActPlansGuideView.swift in Sources */,
+				380F0272BB0B45CBB9FFBF6F /* AboutView.swift in Sources */,
+				83ABDAC398D744FA9C11A8B3 /* ExpiryTrackerView.swift in Sources */,
+				586E6D6785634B8AA156336D /* CrisisTriageView.swift in Sources */,
+				51EBD325B1A747BEABD9AD2E /* SplashScreenView.swift in Sources */,
+				94D7E10158AC4BDE8B93F893 /* EmergencySOSAlarmView.swift in Sources */,
+				EA5EA84DD56B46F793BC08AE /* LocationManager.swift in Sources */,
+				853DC2DF66F24338AF4AD0EC /* SOSAlarmManager.swift in Sources */,
+				8BF846FFB29649998BC3BE78 /* VoiceGuideManager.swift in Sources */,
+				D444E7B55D4D4E43850C161C /* VoiceGuideBar.swift in Sources */,
+				89A859419BDC451E983E62CF /* FamilyDrillViewModel.swift in Sources */,
+				FA649C46E23D4F0CA6EDA4CB /* FamilyDrillView.swift in Sources */,
+				F5D1DC54194E482D9688DFAE /* TacticalModeManager.swift in Sources */,
+				3729C64B9A6F42C38538C3F9 /* TacticalNightVisionView.swift in Sources */,
+				D5A20BBE050A4E8C8F5600AF /* WidgetDataManager.swift in Sources */,
+				DFFAC68FAAF8410D9287E196 /* WidgetComponents.swift in Sources */,
+				0D608C7307CA497AA495AEF6 /* WidgetShowcaseView.swift in Sources */,
+				D5085626408A4E2589049191 /* LocalizationManager.swift in Sources */,
+				9EE079A7C24E4266B4DB4262 /* WatchConnectivityManager.swift in Sources */,
+				598D6D264F974DBDB0B2AF1E /* EmergencyPOI.swift in Sources */,
+				5071E3DC42C24027B7AEADC6 /* OfflinePOIRepository.swift in Sources */,
+				F1F1F8EE82004B479378A290 /* OfflineEmergencyMapView.swift in Sources */,
+				1ED711D559244776B407BDC3 /* PlanSharingManager.swift in Sources */,
+				4BA222FA34064819BD24E335 /* QRCodeScannerView.swift in Sources */,
+				73DDB7BDE17E4414B2F3B336 /* FamilyPlanSharingView.swift in Sources */,
+				DBF170D3F2A743C4B09DD3BF /* EmergencyRadioStation.swift in Sources */,
+				DCADC3D0C0F0401288A70B95 /* EmergencyRadioGuideView.swift in Sources */,
+				21E43D6E268B460986D0C06D /* MedicalICECard.swift in Sources */,
+				411593B0A7134B6A818C8AA9 /* MedicalICECardManager.swift in Sources */,
+				024DF49E46C84EDD80FE7F89 /* MedicalICEWallpaperView.swift in Sources */,
+				ABD2234238C74DA3AD4709D3 /* RescueSignalingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8D2A75F03BD54B2881B0FFCE /* Debug */ = {
+		C05EDAACB6294F4EAB56642B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -335,7 +347,7 @@
 			};
 			name = Debug;
 		};
-		A851EED2E97D4C39B12C6554 /* Release */ = {
+		39C9D794CDC24823B5F37B7B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -353,7 +365,7 @@
 			};
 			name = Release;
 		};
-		DD4CF77576E94C709692FD01 /* Debug */ = {
+		6686B759780A4038938A3FBC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -367,14 +379,14 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.inforeis.Guide72hEurope;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inforeis.MonGuide72h;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		0152FB6D59224B2383B7EFCC /* Release */ = {
+		AD0118F03B0C49C6B9F9B8A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -388,7 +400,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.2.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.inforeis.Guide72hEurope;
+				PRODUCT_BUNDLE_IDENTIFIER = com.inforeis.MonGuide72h;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -398,20 +410,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6E7C207A76F34AB6800445BA /* Build configuration list for PBXProject "MonGuide72h" */ = {
+		429D011D73DE4C5AA2D28289 /* Build configuration list for PBXProject "MonGuide72h" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8D2A75F03BD54B2881B0FFCE /* Debug */,
-				A851EED2E97D4C39B12C6554 /* Release */,
+				C05EDAACB6294F4EAB56642B /* Debug */,
+				39C9D794CDC24823B5F37B7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A483D25149824BEEBB406386 /* Build configuration list for PBXNativeTarget "MonGuide72h" */ = {
+		2D46D6A71F754A83B59A24D7 /* Build configuration list for PBXNativeTarget "MonGuide72h" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD4CF77576E94C709692FD01 /* Debug */,
-				0152FB6D59224B2383B7EFCC /* Release */,
+				6686B759780A4038938A3FBC /* Debug */,
+				AD0118F03B0C49C6B9F9B8A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -419,5 +431,5 @@
 /* End XCConfigurationList section */
 
 	};
-	rootObject = 6E3101D815344A56831FA561 /* Project object */;
+	rootObject = B95813DE3AC047E18A415AAB /* Project object */;
 }

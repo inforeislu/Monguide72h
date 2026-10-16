@@ -1,4 +1,5 @@
 import uuid
+import os
 
 def gen_id():
     return uuid.uuid4().hex[:24].upper()
@@ -313,7 +314,8 @@ content = f'''// !$*UTF8*$!
 }}
 '''
 
-with open('/Users/inforeis/MonGuide72h/ios/MonGuide72h.xcodeproj/project.pbxproj', 'w') as f:
+output_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'MonGuide72h.xcodeproj', 'project.pbxproj')
+with open(output_path, 'w') as f:
     f.write(content)
 
-print('Generated project.pbxproj successfully')
+print(f'Generated project.pbxproj successfully at {output_path}')
