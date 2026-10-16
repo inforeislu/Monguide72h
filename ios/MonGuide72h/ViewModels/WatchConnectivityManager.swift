@@ -51,6 +51,9 @@ public final class WatchConnectivityManager: NSObject, ObservableObject, WCSessi
             "outOfAreaContact": planVM.plan.outOfAreaContact,
             "homeNotes": planVM.plan.homeNotes,
             "iceContacts": contacts,
+            "lurefEast": LocationManager.shared.lurefEastFormatted,
+            "lurefNorth": LocationManager.shared.lurefNorthFormatted,
+            "phoneticSentence": LocationManager.shared.phoneticSentence,
             "lastSyncTimestamp": Date().timeIntervalSince1970
         ]
         return payload
