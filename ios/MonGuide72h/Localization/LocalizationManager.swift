@@ -310,7 +310,15 @@ public class LocalizationManager: ObservableObject {
             "share_contacts_title": "Partage Rapide avec les Proches",
             "share_contacts_sub": "Envoie un SMS avec votre position GPS exacte (lien Apple Maps) et un appel à l'aide aux contacts définis dans le Plan Familial.",
             "send_sos_sms": "Envoyer un SMS d'Urgence avec GPS",
-            "call_cgdis_action": "Appeler le 112 — CGDIS Secours"
+            "call_cgdis_action": "Appeler le 112 — CGDIS Secours",
+            "luref_card_title": "Balise LUREF Officielle (EPSG:2169)",
+            "luref_card_sub": "Système de coordonnées officiel du Grand-Duché utilisé par le 112 CGDIS et les hélicoptères de sauvetage (LAR).",
+            "luref_east_label": "EST (X)",
+            "luref_north_label": "NORD (Y)",
+            "luref_phonetic_title": "Phrase d'urgence à dicter au 112 :",
+            "luref_copy_phrase": "Copier la phrase",
+            "luref_send_sms_112": "Envoyer SMS 112",
+            "luref_manual_title": "Convertisseur Manuel LUREF"
         ],
         .pt: [
             "strobe_view_title": "Baliza de Socorro & SOS Visual",
@@ -595,7 +603,15 @@ public class LocalizationManager: ObservableObject {
             "share_contacts_title": "Partilha Rápida com Contactos",
             "share_contacts_sub": "Envia uma SMS com a sua localização GPS exata (link Apple Maps) e pedido de socorro aos contactos definidos no Plano Familiar.",
             "send_sos_sms": "Enviar SMS de Socorro com GPS",
-            "call_cgdis_action": "Ligar 112 — CGDIS Secours"
+            "call_cgdis_action": "Ligar 112 — CGDIS Secours",
+            "luref_card_title": "Baliza LUREF Oficial (EPSG:2169)",
+            "luref_card_sub": "Sistema oficial de coordenadas do Grão-Ducado utilizado pelo 112 CGDIS e helicópteros de socorro (LAR).",
+            "luref_east_label": "ESTE (X)",
+            "luref_north_label": "NORTE (Y)",
+            "luref_phonetic_title": "Frase de emergência para ler ao 112:",
+            "luref_copy_phrase": "Copiar frase",
+            "luref_send_sms_112": "Enviar SMS 112",
+            "luref_manual_title": "Conversor Manual LUREF"
         ],
         .lu: [
             "strobe_view_title": "Nout-Bake & Visuellen SOS",
@@ -722,6 +738,14 @@ public class LocalizationManager: ObservableObject {
             "share_contacts_sub": "Schéckt eng SMS mat Ärer exakter GPS Positioun (Apple Maps Link) an Noutruff un Är Kontakter.",
             "send_sos_sms": "Noutfall-SMS mat GPS schécken",
             "call_cgdis_action": "112 uruffen — CGDIS Hëllef",
+            "luref_card_title": "Offiziell LUREF Baken (EPSG:2169)",
+            "luref_card_sub": "Offiziellt Koordinatennetz vum Groussherzogtum fir den 112 CGDIS a Rettungshelikopter (LAR).",
+            "luref_east_label": "OST (X)",
+            "luref_north_label": "NORD (Y)",
+            "luref_phonetic_title": "Saz fir haart um 112 virzeliesen:",
+            "luref_copy_phrase": "Saz kopéieren",
+            "luref_send_sms_112": "Noutfall-SMS 112",
+            "luref_manual_title": "Manuelle LUREF Konverter",
             "act_menu_title": "Moossnamen & Reflexer (Handelen)",
             "act_header_title": "Speziell Noutfallpläng (infocrise.lu)",
             "act_intro_desc": "Verhalensweisen vun der Regierung am Fall vun enger grousser Kris zu Lëtzebuerg.",
@@ -1005,6 +1029,14 @@ public class LocalizationManager: ObservableObject {
             "share_contacts_sub": "Sendet eine SMS mit Ihrem genauen GPS-Standort (Apple Maps Link) an Notfallkontakte.",
             "send_sos_sms": "Notfall-SMS mit GPS senden",
             "call_cgdis_action": "112 anrufen — CGDIS Notruf",
+            "luref_card_title": "Offizielle LUREF-Bake (EPSG:2169)",
+            "luref_card_sub": "Offizielles Koordinatensystem Luxemburgs für den 112 CGDIS und Rettungshubschrauber (LAR).",
+            "luref_east_label": "OST (X)",
+            "luref_north_label": "NORD (Y)",
+            "luref_phonetic_title": "Notfall-Satz zum Vorlesen bei Notruf 112:",
+            "luref_copy_phrase": "Satz kopieren",
+            "luref_send_sms_112": "Notfall-SMS 112",
+            "luref_manual_title": "Manueller LUREF-Konverter",
             "act_menu_title": "Maßnahmen & Verhalten (Handeln)",
             "act_header_title": "Spezielle Notfallpläne (infocrise.lu)",
             "act_intro_desc": "Verhaltensempfehlungen der luxemburgischen Regierung im Katastrophenfall.",
@@ -1446,7 +1478,15 @@ public class LocalizationManager: ObservableObject {
             "share_contacts_title": "Quick Share with Family",
             "share_contacts_sub": "Sends an SMS with your exact GPS location (Apple Maps link) and SOS message to contacts defined in your Family Plan.",
             "send_sos_sms": "Send SOS SMS with GPS",
-            "call_cgdis_action": "Call 112 — CGDIS Rescue"
+            "call_cgdis_action": "Call 112 — CGDIS Rescue",
+            "luref_card_title": "Official LUREF Beacon (EPSG:2169)",
+            "luref_card_sub": "Official Grand Duchy coordinate system used by 112 CGDIS and emergency air rescue (LAR).",
+            "luref_east_label": "EAST (X)",
+            "luref_north_label": "NORTH (Y)",
+            "luref_phonetic_title": "Emergency phrase to read aloud to 112:",
+            "luref_copy_phrase": "Copy phrase",
+            "luref_send_sms_112": "Send SMS to 112",
+            "luref_manual_title": "Manual LUREF Converter"
         ]
     ]
 }

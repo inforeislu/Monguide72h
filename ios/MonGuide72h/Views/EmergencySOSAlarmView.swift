@@ -10,6 +10,11 @@ public struct EmergencySOSAlarmView: View {
     
     @State private var showingMessageCompose = false
     @State private var showingCopiedAlert = false
+    @State private var showingCopiedPhoneticAlert = false
+    @State private var showingManualLurefModal = false
+    @State private var manualLat: String = "49.61160"
+    @State private var manualLon: String = "6.13190"
+    @State private var manualResult: String = ""
     @State private var pulseAnimation = false
     @State private var showingHospitalMapSheet = false
     @State private var showingStrobeSheet = false
@@ -71,7 +76,191 @@ public struct EmergencySOSAlarmView: View {
                     .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(16)
                     
-                    // Live GPS & Coordinates Card
+                    // 1. Official Luxembourg LUREF (EPSG:2169) Emergency Beacon Card
+                    VStack(alignment: .leading, spacing: 14) {
+                        HStack {
+                            Text("🇱🇺")
+                                .font(.title3)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(loc.tr("luref_card_title"))
+                                    .font(.system(size: 14, weight: .black, design: .rounded))
+                                    .foregroundColor(Color(red: 0/255, green: 161/255, blue: 222/255))
+                                Text("Grand-Duché de Luxembourg • 112 CGDIS / LAR")
+                                    .font(.system(size: 10, weight: .semibold))
+                                    .foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            Text(locManager.formattedAccuracy)
+                                .font(.caption2.bold())
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 3)
+                                .background(Color.green.opacity(0.18))
+                                .foregroundColor(.green)
+                                .cornerRadius(8)
+                        }
+                        
+                        // LUREF East / North Monospace Display Grid
+                        HStack(spacing: 10) {
+                            VStack(alignment: .center, spacing: 3) {
+                                Text(loc.tr("luref_east_label"))
+                                    .font(.system(size: 10, weight: .heavy))
+                                    .foregroundColor(Color(red: 0/255, green: 161/255, blue: 222/255))
+                                Text(locManager.lurefEastFormatted)
+                                    .font(.system(size: 18, weight: .black, design: .monospaced))
+                                    .foregroundColor(.primary)
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.8)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
+                            .background(Color(UIColor.tertiarySystemBackground))
+                            .cornerRadius(10)
+                            
+                            VStack(alignment: .center, spacing: 3) {
+                                Text(loc.tr("luref_north_label"))
+                                    .font(.system(size: 10, weight: .heavy))
+                                    .foregroundColor(Color(red: 0/255, green: 161/255, blue: 222/255))
+                                Text(locManager.lurefNorthFormatted)
+                                    .font(.system(size: 18, weight: .black, design: .monospaced))
+                                    .foregroundColor(.primary)
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.8)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 10)
+                            .background(Color(UIColor.tertiarySystemBackground))
+                            .cornerRadius(10)
+                        }
+                        
+                        // Phonetic Readout Card for 112 Dispatchers
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack(spacing: 4) {
+                                Image(systemName: "waveform")
+                                    .foregroundColor(.red)
+                                Text(loc.tr("luref_phonetic_title"))
+                                    .font(.caption.bold())
+                                    .foregroundColor(.red)
+                            }
+                            
+                            Text(locManager.phoneticSentence.isEmpty ? "Recherche du signal satellite en cours..." : locManager.phoneticSentence)
+                                .font(.system(size: 12, weight: .medium, design: .monospaced))
+                                .foregroundColor(.primary)
+                                .padding(10)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(Color.red.opacity(0.08))
+                                .cornerRadius(8)
+                            
+                            HStack(spacing: 8) {
+                                Button(action: copyPhoneticPhrase) {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: showingCopiedPhoneticAlert ? "checkmark.circle.fill" : "doc.on.doc.fill")
+                                        Text(showingCopiedPhoneticAlert ? loc.tr("gps_copied") : loc.tr("luref_copy_phrase"))
+                                            .bold()
+                                    }
+                                    .font(.caption.bold())
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 9)
+                                    .background(Color(red: 0/255, green: 43/255, blue: 73/255))
+                                    .cornerRadius(8)
+                                }
+                                
+                                Button(action: send112SMS) {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "bubble.left.and.exclamationmark.bubble.right.fill")
+                                        Text(loc.tr("luref_send_sms_112"))
+                                            .bold()
+                                    }
+                                    .font(.caption.bold())
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 9)
+                                    .background(Color(red: 220/255, green: 38/255, blue: 38/255))
+                                    .cornerRadius(8)
+                                }
+                            }
+                        }
+                        .padding(10)
+                        .background(Color.red.opacity(0.05))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.red.opacity(0.3), lineWidth: 1)
+                        )
+                        .cornerRadius(10)
+                        
+                        // Expandable Manual LUREF Converter
+                        DisclosureGroup(
+                            isExpanded: $showingManualLurefModal,
+                            content: {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    HStack(spacing: 8) {
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text("Latitude WGS84")
+                                                .font(.system(size: 10, weight: .bold))
+                                                .foregroundColor(.secondary)
+                                            TextField("49.6116", text: $manualLat)
+                                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                                .keyboardType(.numbersAndPunctuation)
+                                        }
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text("Longitude WGS84")
+                                                .font(.system(size: 10, weight: .bold))
+                                                .foregroundColor(.secondary)
+                                            TextField("6.1319", text: $manualLon)
+                                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                                .keyboardType(.numbersAndPunctuation)
+                                        }
+                                    }
+                                    
+                                    Button(action: calculateManualLuref) {
+                                        Text("Calculer LUREF")
+                                            .font(.caption.bold())
+                                            .foregroundColor(.white)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 7)
+                                            .background(Color(red: 0/255, green: 161/255, blue: 222/255))
+                                            .cornerRadius(6)
+                                    }
+                                    
+                                    if !manualResult.isEmpty {
+                                        Text(manualResult)
+                                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                                            .foregroundColor(.green)
+                                            .frame(maxWidth: .infinity, alignment: .center)
+                                            .padding(.top, 2)
+                                    }
+                                }
+                                .padding(.top, 6)
+                            },
+                            label: {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "arrow.triangle.2.circlepath")
+                                        .font(.caption2)
+                                    Text(loc.tr("luref_manual_title"))
+                                        .font(.caption.bold())
+                                }
+                                .foregroundColor(Color(red: 0/255, green: 161/255, blue: 222/255))
+                            }
+                        )
+                    }
+                    .padding()
+                    .background(
+                        LinearGradient(
+                            gradient: Gradient(colors: [
+                                Color(red: 0/255, green: 43/255, blue: 73/255).opacity(0.12),
+                                Color(red: 0/255, green: 161/255, blue: 222/255).opacity(0.08)
+                            ]),
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color(red: 0/255, green: 161/255, blue: 222/255).opacity(0.4), lineWidth: 1.5)
+                    )
+                    .cornerRadius(16)
+                    
+                    // 2. Standard Satellite GPS (WGS84) Card
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
                             Image(systemName: "location.north.circle.fill")
@@ -88,7 +277,7 @@ public struct EmergencySOSAlarmView: View {
                         
                         VStack(alignment: .leading, spacing: 4) {
                             Text(locManager.formattedCoordinates)
-                                .font(.system(size: 20, weight: .black, design: .monospaced))
+                                .font(.system(size: 18, weight: .black, design: .monospaced))
                                 .foregroundColor(.primary)
                             
                             HStack {
@@ -141,7 +330,7 @@ public struct EmergencySOSAlarmView: View {
                             }
                         }
                         
-// Night Rescue Signaling / Strobe Button
+                        // Night Rescue Signaling / Strobe Button
                         Button(action: {
                             showingStrobeSheet = true
                         }) {
@@ -273,6 +462,41 @@ public struct EmergencySOSAlarmView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             showingCopiedAlert = false
         }
+    }
+    
+    private func copyPhoneticPhrase() {
+        let phrase = locManager.phoneticSentence
+        guard !phrase.isEmpty else { return }
+        UIPasteboard.general.string = phrase
+        showingCopiedPhoneticAlert = true
+        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            showingCopiedPhoneticAlert = false
+        }
+    }
+    
+    private func send112SMS() {
+        let body = locManager.emergencySMSBody
+        let encoded = body.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        if let url = URL(string: "sms:112&body=\(encoded)") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    private func calculateManualLuref() {
+        guard let lat = Double(manualLat.replacingOccurrences(of: ",", with: ".")),
+              let lon = Double(manualLon.replacingOccurrences(of: ",", with: ".")) else {
+            manualResult = "Coordonnées invalides"
+            return
+        }
+        let res = LocationManager.wgs84ToLuref(latitude: lat, longitude: lon)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = " "
+        let eStr = formatter.string(from: NSNumber(value: Int(res.east.rounded()))) ?? "\(Int(res.east))"
+        let nStr = formatter.string(from: NSNumber(value: Int(res.north.rounded()))) ?? "\(Int(res.north))"
+        manualResult = "LUREF Est : \(eStr) m | Nord : \(nStr) m"
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
     }
     
     private func generateSOSMessage() -> String {

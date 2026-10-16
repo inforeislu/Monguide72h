@@ -280,6 +280,20 @@ public struct OfflineEmergencyMapView: View {
                         .font(.caption.bold())
                         .foregroundColor(.primary)
                 }
+                
+                let luref = LocationManager.wgs84ToLuref(latitude: poi.coordinate.latitude, longitude: poi.coordinate.longitude)
+                HStack(spacing: 6) {
+                    Text("LUREF :")
+                        .font(.system(size: 9, weight: .bold))
+                        .foregroundColor(Color(red: 0/255, green: 161/255, blue: 222/255))
+                    Text("E \(Int(luref.east.rounded())) • N \(Int(luref.north.rounded()))")
+                        .font(.system(size: 10, weight: .bold, design: .monospaced))
+                        .foregroundColor(.secondary)
+                }
+                .padding(.horizontal, 6)
+                .padding(.vertical, 2)
+                .background(Color.blue.opacity(0.08))
+                .cornerRadius(4)
             }
             
             // Action Buttons

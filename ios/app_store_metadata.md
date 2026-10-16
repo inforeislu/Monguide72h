@@ -4,7 +4,7 @@
 **Subtitle**: Lëtz Prepare • Urgence & Survie  
 **Bundle ID**: `com.inforeis.MonGuide72h`  
 **Version**: `1.2.0`  
-**Build**: `1`  
+**Build**: `3`  
 **Category**: Utility / Medical / Weather & Safety  
 **Age Rating**: 4+  
 **Copyright**: © 2026 InfoReis (inforeis.lu). Tous droits réservés.  
@@ -20,16 +20,22 @@
 >
 > Inspirée de la stratégie nationale de résilience **« Lëtz Prepare ! »** du Gouvernement du Grand-Duché de Luxembourg, **Mon Guide 72h** est votre assistant tout-en-un, 100% hors-ligne, pour préparer et protéger votre famille face aux urgences (inondations, pannes d'électricité prolongées, accidents industriels, tempêtes ou crises sanitaires).
 >
-> **Fonctionnalités clés :**
+> **Nouveautés majeures de la Version 1.2 :**
+> - 🇱🇺 **Balise LUREF Officielle (EPSG:2169)** : Conversion topographique mathématique exacte en temps réel (Est / Nord en mètres) reconnue par le CGDIS et l'aviation de sauvetage (LAR).
+> - 🗣️ **Phrase Phonétique 112** : Synthèse de communication claire à dicter au régulateur des secours, avec bouton de copie en 1 clic et SMS d'urgence prérempli.
+> - 📱 **Fiche Médicale ICE Verrouillée** : Génération de fond d'écran d'urgence avec groupe sanguin, matricule CNS et contacts vitaux visibles sans déverrouiller l'iPhone.
+> - 🔊 **Guide Vocal de Crise Hors-Ligne** : Écoutez les instructions de sécurité à voix haute, les mains libres ou dans la pénombre, sans aucune connexion de données.
+> - 📲 **Partage P2P de Plan Familial par QR Code** : Dupliquez et synchronisez votre plan de secours entre smartphones hors réseau.
+> - 🔴 **Vision Nocturne & Balise SOS Morse** : Mode écran rouge préservant la vision nocturne et signal lumineux de détresse pour repérage aérien.
+>
+> **Fonctionnalités permanentes :**
 > - 📦 **Calculateur de Kit 72h Personnalisé** : Estimez en un instant vos besoins vitaux en eau (litres), nourriture (rations) et équipements selon la composition exacte de votre foyer (adultes, enfants, bébés, animaux).
 > - 🎒 **Checklist Sac d'Évacuation (Bug-Out Bag)** : Liste officielle interactive pour préparer votre départ immédiat en moins de 15 minutes.
-> - 📋 **Plan d'Urgence Familial & Dossier PDF** : Définissez vos points de ralliement et contacts clés, et exportez votre dossier complet imprimable d'un clic (AirPrint).
-> - 🚨 **SOS & Alarme de Détresse** : Coordonnées GPS précises à transmettre aux secours (112 / 113) et alarme sonore d'urgence.
-> - 🔦 **Outils Tatiques Immédiats** : Lanterna LED directe, mode vision nocturne rouge (anti-éblouissement) et estroboscópio SOS Morse.
-> - 🔊 **Guide Vocal & Synthèse Vocale Hors-Ligne** : Écoutez les instructions de crise même dans l'obscurité ou les mains occupées.
+> - 📋 **Plan d'Urgence Familial & Export PDF A4** : Définissez vos points de ralliement et imprimez votre dossier familial en un clic.
+> - 📻 **Guide Radio Fréquences Résilientes** : Répertoire complet des fréquences FM/DAB+ de crise au Luxembourg (RTL 88.9/92.5 MHz, 100.7).
 > - ⌚ **Apple Watch & Widgets iOS** : Accédez à vos outils vitaux directement depuis votre poignet et votre écran de verrouillage.
 >
-> 🔒 **100% Hors-Ligne & Respect de la Vie Privée** : Vos données restent exclusivement sur votre appareil. Aucune connexion internet requise en temps de crise.
+> 🔒 **100% Hors-Ligne & Confidentialité Absolue** : Vos données restent exclusivement stockées sur votre appareil, sans aucun suivi ni cloud externe. Accessible à chaque seconde, même en cas de blackout total des réseaux.
 
 ---
 

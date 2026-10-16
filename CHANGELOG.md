@@ -7,6 +7,15 @@ Toutes les modifications notables apportées à ce projet sont documentées dans
 ## [1.2.0] — 2026-10-16
 
 ### 🚀 Nouveautés & Módulos Táticos
+* **🇱🇺 Balise Topographique Officielle LUREF (EPSG:2169)** :
+  * Moteur de calcul mathématique complet avec ellipsoïde Hayford 1909, transformation Bursa-Wolf à 7 paramètres et projection Transverse Mercator (Luxembourg Gauss).
+  * Coordonnées en mètres (Est X et Nord Y) avec incertitude métrique pour guidage direct du 112 CGDIS et des hélicoptères de sauvetage (LAR).
+  * Phrase phonétique d'urgence standardisée prête à lire à voix haute aux régulateurs 112 et bouton d'envoi immédiat par SMS.
+  * Convertisseur manuel WGS84 ⇄ LUREF intégré pour utilisation opérationnelle sans réseau.
+* **🔊 Guide Vocal de Crise Hors-Ligne (TTS Apaisant)** :
+  * Synthèse vocale mesurée et calme (taux 0.48 / 0.88x) pour écoute des consignes de sécurité les mains libres ou en situation d'évacuation nocturne.
+* **📲 Partage Familial Hors-Ligne P2P par QR Code** :
+  * Protocole d'échange direct `MG72H:` encodant et décodant l'intégralité du plan familial sans aucune connexion internet.
 * **📱 Fiche Médicale ICE & Générateur de Fond d'Écran** :
   * Génération haute définition (`1080×2340 px`) directement dans l'appareil avec `<canvas>` HTML5 et Compose.
   * Badge de groupe sanguin haute visibilité, numéro CNS, allergies critiques et deux contacts ICE avec appel direct.
