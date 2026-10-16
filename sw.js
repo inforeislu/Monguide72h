@@ -3,7 +3,7 @@
  * Caches core assets to enable 100% offline autonomy during network blackouts.
  */
 
-const CACHE_NAME = "mon-guide-72h-v3";
+const CACHE_NAME = "mon-guide-72h-v4";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",

@@ -1531,3 +1531,98 @@ function applyQRPayloadString(payloadStr) {
     closeQRScanModal();
   }, 1200);
 }
+
+// ==========================================
+// VOICE CRISIS GUIDE (TEXT-TO-SPEECH)
+// ==========================================
+
+let currentVoiceTitle = "";
+let isSpeakingVoice = false;
+
+function readRiskCardAloud(btn) {
+  const card = btn.closest(".risk-card");
+  if (!card) return;
+  const title = card.querySelector(".risk-card-header strong")?.innerText || "";
+  const bodyText = card.querySelector(".risk-card-body p")?.innerText || "";
+  if (!bodyText) return;
+
+  if (isSpeakingVoice && currentVoiceTitle === title) {
+    stopVoiceGuide();
+    return;
+  }
+
+  document.querySelectorAll(".btn-voice-mini").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+
+  speakCrisisGuide(title, `${title}. ${bodyText}`);
+}
+
+function speakCrisisGuide(title, fullText) {
+  if (!("speechSynthesis" in window)) {
+    alert("Synthèse vocale non supportée par votre navigateur.");
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance = new SpeechSynthesisUtterance(fullText);
+  const langMap = {
+    fr: "fr-FR",
+    en: "en-US",
+    de: "de-DE",
+    lu: "lb-LU",
+    pt: "pt-PT",
+    es: "es-ES",
+    it: "it-IT"
+  };
+  utterance.lang = langMap[state.currentLang] || "fr-FR";
+  utterance.rate = 0.88; // Calm, clear, deliberate rate for emergency situations
+  utterance.pitch = 1.0;
+
+  const voices = window.speechSynthesis.getVoices();
+  const matchedVoice = voices.find(v => v.lang.startsWith(utterance.lang.substring(0, 2)));
+  if (matchedVoice) utterance.voice = matchedVoice;
+
+  isSpeakingVoice = true;
+  currentVoiceTitle = title;
+
+  const bar = document.getElementById("voice-guide-bar");
+  const titleEl = document.getElementById("voice-current-title");
+  const pauseBtn = document.getElementById("btn-voice-pause");
+  if (bar) bar.classList.add("active");
+  if (titleEl) titleEl.textContent = title;
+  if (pauseBtn) pauseBtn.textContent = "⏸️";
+
+  utterance.onend = () => {
+    stopVoiceGuide();
+  };
+
+  utterance.onerror = () => {
+    stopVoiceGuide();
+  };
+
+  window.speechSynthesis.speak(utterance);
+}
+
+function toggleVoiceGuidePause() {
+  if (!("speechSynthesis" in window)) return;
+  const pauseBtn = document.getElementById("btn-voice-pause");
+  if (window.speechSynthesis.paused) {
+    window.speechSynthesis.resume();
+    if (pauseBtn) pauseBtn.textContent = "⏸️";
+  } else {
+    window.speechSynthesis.pause();
+    if (pauseBtn) pauseBtn.textContent = "▶️";
+  }
+}
+
+function stopVoiceGuide() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+  isSpeakingVoice = false;
+  currentVoiceTitle = "";
+  const bar = document.getElementById("voice-guide-bar");
+  if (bar) bar.classList.remove("active");
+  document.querySelectorAll(".btn-voice-mini").forEach(btn => btn.classList.remove("active"));
+}

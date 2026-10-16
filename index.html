@@ -692,6 +692,7 @@
           <div class="risk-card">
             <div class="risk-card-header">
               <span>🌪️ <strong data-i18n="riskWeatherTitle">Phénomènes Météo & Tempêtes</strong></span>
+              <button type="button" class="btn-voice-mini" onclick="readRiskCardAloud(this)">🔊 <span data-i18n="listenBtn">Écouter</span></button>
             </div>
             <div class="risk-card-body">
               <p data-i18n="riskWeatherText">Limitez vos déplacements au strict minimum. Mettez à l'abri les objets susceptibles d'être emportés par le vent. Fermez volets et fenêtres. En cas de canicule, hydratez-vous régulièrement.</p>
@@ -706,6 +707,7 @@
           <div class="risk-card flood">
             <div class="risk-card-header">
               <span>🌊 <strong data-i18n="riskFloodTitle">Inondations & Crues</strong></span>
+              <button type="button" class="btn-voice-mini" onclick="readRiskCardAloud(this)">🔊 <span data-i18n="listenBtn">Écouter</span></button>
             </div>
             <div class="risk-card-body">
               <p data-i18n="riskFloodText">Surélevez les appareils électroménagers et produits chimiques dans les caves. Éloignez les véhicules des berges. Coupez le courant des pièces inondables. Ne marchez JAMAIS dans une eau susceptible d'être sous tension. Évitez sous-sols et parkings.</p>
@@ -720,6 +722,7 @@
           <div class="risk-card">
             <div class="risk-card-header">
               <span>💻 <strong data-i18n="riskCyberTitle">Cyberattaques & Pannes Réseau</strong></span>
+              <button type="button" class="btn-voice-mini" onclick="readRiskCardAloud(this)">🔊 <span data-i18n="listenBtn">Écouter</span></button>
             </div>
             <div class="risk-card-body">
               <p data-i18n="riskCyberText">Ne communiquez jamais de mots de passe ou coordonnées bancaires par message. Visitez les sites officiels plutôt que de cliquer sur des liens. En cas d'attaque bancaire, contactez Worldline immédiatement et déconnectez les appareils infectés.</p>
@@ -735,6 +738,7 @@
           <div class="risk-card severe">
             <div class="risk-card-header">
               <span>⚠️ <strong data-i18n="riskTerrorTitle">Menace Terroriste</strong></span>
+              <button type="button" class="btn-voice-mini" onclick="readRiskCardAloud(this)">🔊 <span data-i18n="listenBtn">Écouter</span></button>
             </div>
             <div class="risk-card-body">
               <p data-i18n="riskTerrorText">Soyez attentif à votre environnement. Ne touchez jamais un sac abandonné. En cas d'attaque : Éloignez-vous sans vous exposer, mettez-vous à l'abri, fermez et bloquez les accès, silence complet, alertez les forces de l'ordre (113).</p>
@@ -748,6 +752,7 @@
           <div class="risk-card nuclear">
             <div class="risk-card-header">
               <span>☢️ <strong data-i18n="riskNuclearTitle">Accident Nucléaire</strong></span>
+              <button type="button" class="btn-voice-mini" onclick="readRiskCardAloud(this)">🔊 <span data-i18n="listenBtn">Écouter</span></button>
             </div>
             <div class="risk-card-body">
               <p data-i18n="riskNuclearText">Mettez-vous à l'abri dans un bâtiment fermé. Arrêtez les ventilations, climatiseurs et fermez fenêtres/volets. Sortez vos comprimés d'iode : NE LES PRENEZ QUE SUR ORDRE FORMEL des autorités (recommandé uniquement pour les &lt;45 ans).</p>
@@ -1019,6 +1024,19 @@
         </button>
       </div>
       <div id="qr-scan-feedback" style="margin-top: 0.75rem; font-size: 0.9rem; text-align: center; font-weight: bold;"></div>
+    </div>
+  </div>
+
+  <!-- Floating Voice Guide Bar -->
+  <div id="voice-guide-bar">
+    <div style="font-size: 1.2rem;">🔊</div>
+    <div>
+      <div style="font-size: 0.7rem; color: #00A1DE; font-weight: 700; text-transform: uppercase;" data-i18n="voiceGuideBarTitle">Guide Vocal d'Urgence</div>
+      <div id="voice-current-title" class="voice-guide-title">Titre du guide</div>
+    </div>
+    <div class="voice-guide-controls">
+      <button type="button" id="btn-voice-pause" class="btn-voice-ctrl" onclick="toggleVoiceGuidePause()" title="Pause/Reprendre">⏸️</button>
+      <button type="button" id="btn-voice-stop" class="btn-voice-ctrl" onclick="stopVoiceGuide()" title="Arrêter">⏹️</button>
     </div>
   </div>
 

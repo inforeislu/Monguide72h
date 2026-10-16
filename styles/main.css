@@ -1428,3 +1428,102 @@ body.night-vision-mode .radio-freq-badge {
   0%, 100% { border-color: #00A1DE; }
   50% { border-color: #EA141D; }
 }
+
+/* Voice Guide Mini Button */
+.btn-voice-mini {
+  background: rgba(0, 161, 222, 0.15);
+  border: 1px solid rgba(0, 161, 222, 0.4);
+  color: #00A1DE;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  margin-left: auto;
+}
+
+.btn-voice-mini:hover {
+  background: #00A1DE;
+  color: #ffffff;
+}
+
+.btn-voice-mini.active {
+  background: #EA141D;
+  border-color: #EA141D;
+  color: #ffffff;
+  animation: pulseVoice 1.5s infinite;
+}
+
+@keyframes pulseVoice {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.05); }
+}
+
+/* Floating Voice Guide Bar */
+#voice-guide-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 43, 73, 0.95);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid #00A1DE;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: none;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+  z-index: 9998;
+  max-width: 90%;
+  animation: slideUpVoice 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpVoice {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+#voice-guide-bar.active {
+  display: flex;
+}
+
+.voice-guide-title {
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;
+}
+
+.voice-guide-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-voice-ctrl {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.btn-voice-ctrl:hover {
+  background: #00A1DE;
+}

@@ -229,7 +229,9 @@ const I18N = {
     qrPasteKey: "Collez ici le code (commençant par MG72H:)...",
     qrApplyBtn: "Valider & Synchroniser le Plan",
     qrSuccess: "Plan d urgence familial importé avec succès !",
-    qrError: "Code QR non reconnu ou format invalide." 
+    qrError: "Code QR non reconnu ou format invalide." ,
+    listenBtn: "Écouter",
+    voiceGuideBarTitle: "Guide Vocal d Urgence"
   },
 
   en: {
@@ -444,7 +446,9 @@ const I18N = {
     qrPasteKey: "Paste emergency code here (starting with MG72H:)...",
     qrApplyBtn: "Validate & Sync Plan",
     qrSuccess: "Family emergency plan imported successfully!",
-    qrError: "Unrecognized QR code or invalid format." 
+    qrError: "Unrecognized QR code or invalid format." ,
+    listenBtn: "Listen",
+    voiceGuideBarTitle: "Emergency Voice Guide"
   },
 
   lu: {
@@ -659,7 +663,9 @@ const I18N = {
     qrPasteKey: "Pecht de Code hei eran (fänkt mat MG72H: un)...",
     qrApplyBtn: "Plang Validéieren & Synchroniséieren",
     qrSuccess: "Famillje-Noutplang erfollegräich importéiert!",
-    qrError: "QR Code net erkannt oder ongëltegt Format." 
+    qrError: "QR Code net erkannt oder ongëltegt Format." ,
+    listenBtn: "Nolauschteren",
+    voiceGuideBarTitle: "Noutfall Stëmmguide"
   },
 
   de: {
@@ -874,7 +880,9 @@ const I18N = {
     qrPasteKey: "Code hier einfügen (beginnend mit MG72H:)...",
     qrApplyBtn: "Plan Bestätigen & Synchronisieren",
     qrSuccess: "Familien-Notfallplan erfolgreich importiert!",
-    qrError: "QR-Code nicht erkannt oder ungültiges Format." 
+    qrError: "QR-Code nicht erkannt oder ungültiges Format." ,
+    listenBtn: "Anhören",
+    voiceGuideBarTitle: "Notfall-Sprachführer"
   },
 
   es: {
@@ -1089,7 +1097,9 @@ const I18N = {
     qrPasteKey: "Pegue aquí el código (que empieza por MG72H:)...",
     qrApplyBtn: "Validar & Sincronizar Plan",
     qrSuccess: "¡Plan de emergencia familiar importado con éxito!",
-    qrError: "Código QR no reconocido o formato no válido." 
+    qrError: "Código QR no reconocido o formato no válido." ,
+    listenBtn: "Escuchar",
+    voiceGuideBarTitle: "Guía de Voz de Emergencia"
   },
 
   it: {
@@ -1304,7 +1314,9 @@ const I18N = {
     qrPasteKey: "Incolla qui il codice (che inizia con MG72H:)...",
     qrApplyBtn: "Convalida & Sincronizza Piano",
     qrSuccess: "Piano di emergenza familiare importato con successo!",
-    qrError: "Codice QR non riconosciuto o formato non valido." 
+    qrError: "Codice QR non riconosciuto o formato non valido." ,
+    listenBtn: "Ascolta",
+    voiceGuideBarTitle: "Guida Vocale di Emergenza"
   },
 
   pt: {
@@ -1519,6 +1531,8 @@ const I18N = {
     qrPasteKey: "Cole aqui o código (a começar por MG72H:)...",
     qrApplyBtn: "Validar & Sincronizar Plano",
     qrSuccess: "Plano de emergência familiar importado com sucesso!",
-    qrError: "Código QR não reconhecido ou formato inválido." 
+    qrError: "Código QR não reconhecido ou formato inválido." ,
+    listenBtn: "Ouvir",
+    voiceGuideBarTitle: "Guia Vocal de Emergência"
   }
 };
